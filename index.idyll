@@ -1,0 +1,303 @@
+[meta title:"CSE412 Final Project" description:"The initial template for the CSE412 Final Projects (Spring 2021)" /]
+
+[Header
+  fullWidth:true
+  title:"CSE412 Final Project Template"
+  subtitle:"Use this structure to get started, but make the narrative your own!"
+  author:"Jane Hoffswell"
+  authorLink: "
+  https://courses.cs.washington.edu/courses/cse412/21sp/index.html"
+  date:"Apr 6, 2021"
+  background:"#33333f"
+  color:"#ffffff"
+   /]
+
+The final project will provide hands-on experience designing, implementing, and deploying interactive visualizations for the web. For this project, you will select a topic of interest and author a narrative article and accompanying visualizations to educate and inform a general audience. Think of your project as contributing to our own class newspaper or scientific magazine. The final deliverable will take the form of an explanatory narrative, deployed as an interactive web page using GitHub Pages. You will leverage the template and style provided here. 
+
+## The theme is data visualization for communicating scientific advancements or social phenomena. How might data visualization help us better understand the workings of our society or our physical world?
+
+Your project must visualize one or more publicly accessible datasets of social or scientific importance. You are free to choose a specific domain of personal interest; for example, you might explore data relevant to your UW major. Example topics include transportation, economic development, humanitarian aid, legislative voting records, and communicating scientific research, among many others. Talk to the course staff if you have any questions regarding the project theme.
+
+This template was created with [Idyll](https://idyll-lang.org/docs), which is a markup language for creating beautiful interactive webpages. For your own webpage, you can customize the particular components and layouts that are used, but the style of the overall page is predefined by our course theme. 
+
+Keep reading for examples of how to embed visualizations and modify the format.
+
+### Embedding Visualizations
+
+We can easily embed images inline by including a short code snippet referencing an image file: `![example](./static/images/banner.png)`
+
+![example](./static/images/banner.png)
+
+#### Specifying data for dynamic Vega-Lite and D3 visualizations
+
+ First, we specify the data that will be used in the visualization with a short code snippet: `[data name:"sunshine" source:"sunshine.json" /]`. We will reference this dataset with the name `sunshine` when creating visualizations in Vega-Lite or D3. 
+
+[data name:"sunshine" source:"sunshine.csv" /]
+
+#### Embedding Vega-Lite visualizations
+
+Idyll has support for embedding Vega-Lite visualizations to the page using a similar approach to the standard image. To get started, we need to first install Vega-Lite by running the command: `npm i --save idyll-vega-lite`. We can then embed a visualization as follows (see the `index.idyll` file for the actual code):
+
+[IdyllVegaLite actions:false width:"container" data:sunshine spec:`{
+  mark: "bar",
+  encoding: {
+    x: {
+      field: "month",
+      type: "nominal",
+      sort: "none",
+      axis: {labelAngle: 0, ticks: false}
+    },
+    y: {
+      field: "sunshine",
+      type: "quantitative"
+    },
+    tooltip: {
+      field: "sunshine",
+      type: "quantitative"
+    }
+  }
+}` /]
+
+The main Vega-Lite component uses the JSON syntax, but you can also create Vega-Lite visualizations using the API as follows:
+
+[IdyllVegaLite actions:false width:"container" data:sunshine spec:`
+  vl.markBar().encode(
+    vl.x().fieldN("month").sort("none").axis({labelAngle: 0, ticks: false}),
+    vl.y().fieldQ("sunshine"),
+    vl.tooltip().fieldQ("sunshine")
+  ).toSpec()
+` /]
+
+The main thing to note when using the API is that you must call `.toSpec()` at the end of your code in order to make the `IdyllVegaLite` component behave normally.
+
+[span style:`{color:'#aaa', fontStyle:'italic'}`]Fun Fact: Using the `.toSpec()` function is an easy way to port visualizations from Observable to your final webpage. Develop your designs in Observable as normal, then copy the JSON specification as follows: `JSON.stringify(myVis.toSpec())`, where `myVis` is the name of the variable containing your visualization. The `JSON.stringify` function allows you to copy the text (string) version of the JSON object. Note that you may have to adjust the JSON spec slightly when adding it to the `IdyllVegaLite` component in order to import your data appropriately.[/span]
+
+#### Embedding D3 visualizations
+
+Idyll has a pre-supported component for rendering D3 visualizations; to create a visualization, you can write a new component that extends this custom class. To see how this work, take a look at the file `d3-sunshine` in the `components` directory. In essence, you will create a seperate custom D3 component for each visualization that you would like to create in D3 for your page.
+
+[D3Sunshine data:sunshine /]
+
+#### Embedding Tableau visualizations
+
+If you look at the `index.idyll`, this is how you can embed Tableau visualizations:
+
+[TableauEmbed link:"https://public.tableau.com/views/412demo/Sheet1?" width:"100%" height:"400"/]
+
+`TableauEmbed` is a custom component defined in the file `tableau-embed.js`. You can similarly [create your own custom components](https://idyll-lang.org/docs/components/custom) for other types of embeddings.
+
+#### Embedding Observable visualizations
+
+You can embed Observable visualizations as follows:
+
+[FullWidth]
+[ObservableEmbed link:"https://observablehq.com/embed/@cse412/cse-412-section-3-vega-lite?cells=horsepower_acceleration"width:"100%" height:"445"/]
+[/FullWidth]
+
+The original visualization is on the larger side, so we can display it using a `FullWidth` component so that the visualization spans the whole width of our browser window. While you can customize the size of the embeded window, the size of the *visualizations* will be the same as the original Observable document.
+
+[span style:`{color:'#aaa', fontStyle:'italic'}`]Note: If you don't like having the Tableau or Observable branding on your page, consider porting the visualizations to Vega-Lite or D3. Interactions will also be smoother and more responsive for visualizations that have been ported over, rather than those that are embedded from a different website. When designing your narrative, think about how important the interactions are for communicating the main takeaways, and decide on a particular implementation accordingly.[/span]
+
+#### Embedding Plotly visualizations
+
+Similar to the other embedded visualizations, you can embed interactive Plotly visualizations using the custom component `PlotlyEmbed`:
+
+[FullWidth]
+[PlotlyEmbed link:"https://plotly.com/~kmarathe/1.embed" height:"800" width:"100%" /]
+[/FullWidth]
+
+Note that the `width` and `height` parameters control the size of the `iframe` that is embedded in the page, *not* the visualization, so you will need to design your visualizations with Plotly accordingly, and test the page layout.
+
+### Changing the Narrative Structure and Page Layout
+
+[Aside]
+[IdyllVegaLite actions:false data:sunshine spec:`{
+  mark: "bar",
+  width: 190,
+  height: 100,
+  encoding: {
+    x: {
+      field: "month",
+      type: "nominal",
+      sort: null,
+      axis: {labelAngle: 0, ticks: false, labelExpr: "datum.label[0]"}
+    },
+    y: {
+      field: "sunshine",
+      type: "quantitative"
+    },
+    tooltip: [
+      {field: "month", type: "nominal"},
+      {field: "sunshine", type: "quantitative"}
+    ]
+  }
+}` /]
+[/Aside]
+
+The most straightforward (and default) style for a page is basic text like what we have used so far. Visualizations are embedded in place and are scrolled like a standard webpage. But with Idyll, we can do a lot more!
+
+Take the Vega-Lite visualization from earlier, we can display it in the margin alongside the text by wrapping the code with the command `[Aside] ... [/Aside]`.
+
+Perhaps you would like to try including a large image in the background, with text that scrolls by on top of it? With Idyll, that's easy! Keep scrolling for an example...
+
+[Scroller]
+
+  [Graphic]
+    [TableauEmbed link:"https://public.tableau.com/views/412demo/Sheet1?" width:"100%" height:"600"/]
+  [/Graphic]
+
+  [Step]
+    To create this scrolling segment of the document, we first specify a `Scroller` component, which can just be done with `[Scroller] ... [/Scroller]`. The text and visualizations seen here are specified within this component.
+  [/Step]
+
+  [Step]
+    The background is that same Tableau map visualization from earlier, but displayed at a larger size.
+  [/Step]
+
+  [Step]
+    To set the background, you can use a `Graphic` component to wrap the `TableauEmbed` component from earlier.
+  [/Step]
+
+  [Step]
+    The contents for these text boxes are described with the `Step` component, and can even include other components like the visualizations from before!
+
+    [IdyllVegaLite actions:false width:"container" data:sunshine spec:`{
+      mark: "bar",
+      encoding: {
+        x: {
+          field: "month",
+          type: "nominal",
+          sort: "none",
+          axis: {labelAngle: 0, ticks: false}
+        },
+        y: {
+          field: "sunshine",
+          type: "quantitative"
+        },
+        tooltip: {
+          field: "sunshine",
+          type: "quantitative"
+        }
+      }
+    }` /]
+
+  [/Step]
+
+  [Step]
+    Take a look in the `index.idyll` file to see exactly how this works in the code, and keep scrolling for more examples.
+  [/Step]
+
+[/Scroller]
+
+Idyll allows you to mix and match components throughout the document to create dynamic visualizations and compelling narrative layouts. Some other layout options include [FullWidth](https://idyll-lang.org/docs/component/full-width), [Inline](https://idyll-lang.org/docs/component/inline), and [Stepper](https://idyll-lang.org/docs/component/stepper), among others. Details are included on [Idyll's documentation page for built-in components](https://idyll-lang.org/docs/components).
+
+This page also describes a variety of the other built-in components for controlling the dynamic behavior of the document, such as [dynamic variables](https://idyll-lang.org/docs/component/dynamic) and input widgets like ([buttons](https://idyll-lang.org/docs/component/button), [range sliders](https://idyll-lang.org/docs/component/range), and [dropdowns](https://idyll-lang.org/docs/component/select)).
+
+Let's take a look at some dynamic visualization updates with another scrollytelling example. In this case, we will use a fixed visualization alongside the text and update the visualization as we go. Keep scrolling to see the example...
+
+[var name:"myLocation" value:0 /]
+
+[Scroller className:"hasBackground" currentStep:myLocation]
+
+  [Graphic className:"d3-component-container"]
+    [CustomD3Component className:"d3-component" state:`myLocation+1` /]
+  [/Graphic]
+
+  [Step]
+    This `Scroller` uses some custom CSS to set the background color to "#33333f" [Inline][div style:`{background: "#33333f", width: 12, height: 12}` /][/Inline].
+  [/Step]
+
+  [Step]
+    It also uses custom CSS to style the `Graphic` (which is a custom D3 component) so that it appears as a fixed visualization next to the scrolling text.
+  [/Step]
+
+  [Step]
+    What's cool about this `CustomD3Component` is that it updates as we scroll. It does this by leveraging the `update` function to animate the point as it moves to a new position.
+  [/Step]
+
+  [Step]
+    To keep track of where we are in the `Scroller`, we first defined a dynamic Idyll variable named `myLocation` using the following code: `[var name:"myLocation" value:0 /]`
+  [/Step]
+
+  [Step]
+    Each time we scroll to a new `Step`, the `Graphic` updates it state based on this dynamic variable, which can be used to parameterize the visualization.
+  [/Step]
+
+  [Step]
+    Right now, the value of `myLocation` is [Display value:myLocation /]. Cool huh?
+
+    [span style:`{color:'#aaa', fontStyle:'italic'}`]If you scroll back and forth between this `Step` and the previous one, notice how the value that is displayed changes based on when the new `Step` is triggered.[/span]
+  [/Step]
+
+[/Scroller]
+
+[br /]
+
+You can really put anything in these dynamic variables. For example, the Vega-Lite visualization we keep using could have been in a variable.
+
+[var name:"myViz" value:`{
+  mark: "bar",
+  encoding: {
+    x: {
+      field: "month",
+      type: "nominal",
+      sort: "none",
+      axis: {labelAngle: 0, ticks: false}
+    },
+    y: {
+      field: "sunshine",
+      type: "quantitative"
+    },
+    tooltip: {
+      field: "sunshine",
+      type: "quantitative"
+    }
+  }
+}` /]
+[IdyllVegaLite actions:false width:"container" data:sunshine spec:myViz /]
+
+There's a better way, though. What if we create our own new custom component? This way we can seperate out our visualizations into different files. See `components/my-viz.js` for the following example.
+
+[span style:`{color:'#aaa', fontStyle:'italic'}`]How did we know how to write that file? We looked at the [source code](https://github.com/idyll-lang/idyll-vega-lite/blob/master/index.js) of idyll-vega-lite. Idyll and its surrounding packages have their source on GitHub if you're ever curious.[/span]
+
+[MyViz actions:false data:sunshine width:"container"/]
+
+You can also use the Vega-Lite API like in the following example, found in `components/my-api-viz.js`.
+
+[MyAPIViz actions:false data:sunshine width:"container"/]
+
+# Getting Started with Your Project
+
+This template is a starting place for your project. Update the header information to include the relevant details for your project, and then feel free to mix and match the visualization and layout techniques introduced here for your own narrative. Use this template and especially the [Idyll documentation](https://idyll-lang.org/docs) as a reference for what you can do.
+
+Think about how the narrative structure draws readers into the story you are telling and how the visualizations interact with the text (and with each other). The narrative should help ensure that the page as a whole is greater than just the sum of its parts. When designing your page, decide on particular layouts that enhance the reader's experience and understanding of the topic.
+
+## Required Software
+
+You must have Node.js installed. You can get it directly from https://nodejs.org/en/.
+
+## Installation
+
+- Clone and open your project repo on your own computer.
+- Make sure you have `idyll` installed (`npm i -g idyll`).
+- Run `npm install` to install project-specific dependencies.
+
+npm is the node package manager. If you're curious how this works and what the project dependencies are, open up `package.json` to see where these are listed.
+
+You can install custom dependencies by running `npm install <package-name> --save`. Note that any collaborators will also need to download the package locally by running `npm install` after pulling the changes.
+
+## Developing a post locally
+
+Run `idyll` from the command line. Your post will appear at [http://localhost:3000/](http://localhost:3000/). When the server is running, any local change that you make will be deteched and your webpage will auto-update with the new changes. Your local changes will not be visible to your team members until you push the changes to your repository. These changes will not be reflected in the final website unless you run the build script and push the updated docs folder (see below).
+
+## Building a post for production
+
+Run `idyll build`. The output will appear in the top-level `build` folder. To change the output location, change the `output` option in `package.json`, such as to `docs`.
+
+## Deploying
+
+Make sure your post has been built, then commit the `docs` folder to your project repository. It will be available at [cse412-21sp.github.io/your-repo-name/](). For example, you can view the sample embedded Tableau, vega-lite, and d3 charts at [https://jhoffswell.github.io/cse412-project-template-idyll/](https://jhoffswell.github.io/cse412-project-template-idyll/).
+
+#### Acknowledgements
+
+This template was adapted from the initial Scrollytelling template for Idyll. The code and visualization examples were adapted from the [final project template](https://github.com/cse412-21w/project-demo) created for a previous offering of CSE 412.

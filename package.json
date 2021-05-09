@@ -1,0 +1,26 @@
+{
+  "name": "cse412-fp-template",
+  "version": "1.0.0",
+  "license": "MIT",
+  "idyll": {
+    "context": "./context.js",
+    "theme": "default",
+    "layout": "centered",
+    "css": "styles.css",
+    "authorView": false,
+    "output": "docs"
+  },
+  "dependencies": {
+    "d3": "^6.6.2",
+    "d3-scale-chromatic": "^2.0.0",
+    "d3-selection": "^2.0.0",
+    "d3-transition": "^2.0.0",
+    "idyll": "^5.0.0",
+    "idyll-d3-component": "^2.0.0",
+    "idyll-vega-lite": "^2.1.0",
+    "vega-lite-api": "^5.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
+}
