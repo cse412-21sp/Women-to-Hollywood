@@ -1,13 +1,13 @@
-[meta title:"CSE412 Final Project" description:"The initial template for the CSE412 Final Projects (Spring 2021)" /]
+[meta title:"CSE412 Final Project" description:"The prototype for the CSE412 Final Projects (Spring 2021)" /]
 
 [Header
   fullWidth:true
-  title:"CSE412 Final Project Template"
-  subtitle:"Use this structure to get started, but make the narrative your own!"
-  author:"Jane Hoffswell"
+  title:"CSE412 Final Project"
+  subtitle:"Women in Hollywood: the best project ever!"
+  author:"X. X, ..."
   authorLink: "
   https://courses.cs.washington.edu/courses/cse412/21sp/index.html"
-  date:"Apr 6, 2021"
+  date:"May 17, 2021 (Last updaed)"
   background:"#33333f"
   color:"#ffffff"
    /]
