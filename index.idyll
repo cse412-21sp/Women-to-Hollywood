@@ -301,3 +301,19 @@ Make sure your post has been built, then commit the `docs` folder to your projec
 #### Acknowledgements
 
 This template was adapted from the initial Scrollytelling template for Idyll. The code and visualization examples were adapted from the [final project template](https://github.com/cse412-21w/project-demo) created for a previous offering of CSE 412.
+
+
+#Project Template
+
+## Do movies that pass the Bechdel Test receive different audience/critic ratings compared to movies that do not pass the test?
+
+![example](./static/images/bechdeltest.png)
+
+The Bechdel Test is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man.
+Using this measure, we hope to see whether Rotten Tomatoes audience and critic ratings are different for various movies that pass or fail this test.
+
+From the main scatter plot we cannot tell much as the two categories seem to be distributed pretty evenly throught the graph. When we look at the
+variable marginal density plot for x (critics ratings) we see that both movies that have passed the test and failed the test have similar density curves. Looks like critics ratings
+are not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of 
+audience ratings around 0.6. This may be becuase the audience may have consisted of mainly women. 
+
