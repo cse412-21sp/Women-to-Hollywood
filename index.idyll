@@ -317,3 +317,6 @@ variable marginal density plot for x (critics ratings) we see that both movies t
 are not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of 
 audience ratings around 0.6. This may be becuase the audience may have consisted of mainly women. 
 
+## Changes over time in movie directed by women
+
+[TableauEmbed link:"https://public.tableau.com/views/movies_16215442104760/Dashboard3?:language=zh-Hant&:display_count=y&publish=yes&:origin=viz_share_link" width:"100%" height:"500"/]
