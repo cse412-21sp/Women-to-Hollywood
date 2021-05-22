@@ -25,8 +25,8 @@ Using this measure, we hope to see whether Rotten Tomatoes audience and critic r
 
 From the main scatter plot we cannot tell much as the two categories seem to be distributed pretty evenly throught the graph. When we look at the
 variable marginal density plot for x (critics ratings) we see that both movies that have passed the test and failed the test have similar density curves. Looks like critics ratings
-are not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of 
-audience ratings around 0.6. This may be becuase the audience may have consisted of mainly women. 
+are not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of
+audience ratings around 0.6. This may be becuase the audience may have consisted of mainly women.
 
 ## Changes over time in movie directed by women
 
@@ -43,8 +43,16 @@ Starting from 1980s, women directors have made more and more contributions to th
 
 [TableauEmbed link:"https://public.tableau.com/views/question2_16215645190700/Sheet4?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"100%" height:"500"/]
 
-Although the ratings for movies directed by both female and male directors dropped since the World War II, the overall vote of movies directed by females are getting higher than those directed by males over the years. This trend is supported by large amount of movies produced after 1980s. 
+Although the ratings for movies directed by both female and male directors dropped since the World War II, the overall vote of movies directed by females are getting higher than those directed by males over the years. This trend is supported by large amount of movies produced after 1980s.
 
+<<<<<<< HEAD
 ## Sigh
 
 ![example](./static/images/proportion.png)
+=======
+## Are budget and box office earnings connected to presence of females in the cast?
+
+[TableauEmbed link:"https://public.tableau.com/shared/2BT6QSXDR?:display_count=y&:origin=viz_share_link" width:"100%" height:"300"/]
+For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%.
+Movies with a female actor in the first billing spot tended to have a higher percentage of overall female cast.
+>>>>>>> c1746ea62dfabbc31b777bcbf5f71f2f65f00e7d
