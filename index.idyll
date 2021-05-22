@@ -58,3 +58,6 @@ Data from FiveThirtyEight, Box Office Mojo, and The Numbers.
 ## How does the female to male ratio of the crew compare with the success of the movie? 
 
 ![example](./static/images/proportion.png)
+
+The above visualization is meant to be interactive. The y-axis shows the Rotten Tomatoes score given by critics and the x-axis shows the Female:Male ratio in the crew for movies that had the data avaialble. The interactivity would allow users to hover over the data points and view information such as the name of the moive, the IMDB score (which determines the size of the points) and the color variation determines
+the box office opening numbers. Ideally, users would also be able to change the y-axis variable and see Rotten Tomatoes scores from the audience as well. 
