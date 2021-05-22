@@ -47,9 +47,13 @@ Although the ratings for movies directed by both female and male directors dropp
 
 ## Are budget and box office earnings connected to presence of females in the cast?
 
-[TableauEmbed link:"https://public.tableau.com/shared/2BT6QSXDR?:display_count=y&:origin=viz_share_link" width:"100%" height:"300"/]
-For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%.
-Movies with a female actor in the first billing spot tended to have a higher percentage of overall female cast.
+[TableauEmbed link:"https://public.tableau.com/views/FP1_16216436914500/Dashboard2?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"153%" height:"850"/]
+The above interactive plot includes data on the cast of the 50 top-grossing movies of 2016, compared to either production budget or domestic box office earnings on opening weekend. Movies can be highlighted on whether or not they pass some condition on casting and billing of female actors, in addition to the Bechdel test.
+
+For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%. Judging by the titles of these movies, most of these high-earners with a smaller female cast were action/superhero and adventure movies. For films with an overall female cast of 45% or above, the production budget and box office openings appeared to be lower.
+Movies with a female actor in the first billing spot tended to have a higher percentage of overall female cast. Unsurprisingly, films that passed the Bechdel test also tended to have a higher percentage of women in the overall cast.
+
+Data from FiveThirtyEight, Box Office Mojo, and The Numbers.
 
 ## How does the female to male ratio of the crew compare with the success of the movie? 
 
