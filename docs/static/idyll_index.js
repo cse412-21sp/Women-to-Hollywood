@@ -33,6 +33,8 @@ var TableauEmbed = function (_React$Component) {
 
       return React.createElement('iframe', {
         src: this.props.link + ':showVizHome=no&:embed=true',
+        scrolling: "no",
+        style: { border: "none" },
         width: this.props.width,
         height: this.props.height
       });
@@ -20173,7 +20175,40 @@ module.exports = {
   }
 };
 
-},{}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\generateHeaders.js":[function(require,module,exports){
+},{}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-component-children\\dist\\cjs\\index.js":[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+var filterChildren = function filterChildren(children, f) {
+  if (children) {
+    return React.Children.toArray(children).filter(function (c) {
+      if (c && c.type && c.type.name && c.type.name.toLowerCase() === 'wrapper') {
+        return f(c.props.children[0]);
+      }
+      return f(c);
+    });
+  }
+  return children;
+};
+
+var mapChildren = function mapChildren(children, transform) {
+  if (children) {
+    return React.Children.map(children, function (c, i) {
+      if (c && c.type && c.type.name && c.type.name.toLowerCase() === 'wrapper') {
+        return React.cloneElement(c, {
+          children: mapChildren(c.props.children, transform)
+        });
+      }
+      return transform(c, i);
+    });
+  }
+  return children;
+};
+
+module.exports = { filterChildren: filterChildren, mapChildren: mapChildren };
+
+},{"react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\generateHeaders.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -20218,6 +20253,66 @@ var GenerateHeaders = function GenerateHeaders(props) {
 };
 
 exports.default = GenerateHeaders;
+
+},{"react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\graphic.js":[function(require,module,exports){
+"use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var React = require('react');
+
+var Graphic = function (_React$Component) {
+  _inherits(Graphic, _React$Component);
+
+  function Graphic() {
+    _classCallCheck(this, Graphic);
+
+    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
+
+  Graphic.prototype.render = function render() {
+    var _props = this.props,
+        idyll = _props.idyll,
+        updateProps = _props.updateProps,
+        hasError = _props.hasError,
+        props = _objectWithoutProperties(_props, ["idyll", "updateProps", "hasError"]);
+
+    return React.createElement("div", props);
+  };
+
+  return Graphic;
+}(React.Component);
+
+Graphic._idyll = {
+  name: "Graphic",
+  tagType: "open"
+};
+
+module.exports = Graphic;
 
 },{"react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\h1.js":[function(require,module,exports){
 'use strict';
@@ -20360,6 +20455,77 @@ H2._idyll = {
 };
 
 exports.default = H2;
+
+},{"./generateHeaders":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\generateHeaders.js","react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\h3.js":[function(require,module,exports){
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _generateHeaders = require('./generateHeaders');
+
+var _generateHeaders2 = _interopRequireDefault(_generateHeaders);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var H3 = function (_React$PureComponent) {
+  _inherits(H3, _React$PureComponent);
+
+  function H3() {
+    _classCallCheck(this, H3);
+
+    return _possibleConstructorReturn(this, _React$PureComponent.apply(this, arguments));
+  }
+
+  H3.prototype.render = function render() {
+    return _react2.default.createElement(_generateHeaders2.default, _extends({ size: '3' }, this.props));
+  };
+
+  return H3;
+}(_react2.default.PureComponent);
+
+H3._idyll = {
+  name: 'H3',
+  tagType: 'open',
+  children: ['My Header Size 3']
+};
+
+exports.default = H3;
 
 },{"./generateHeaders":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\generateHeaders.js","react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\header.js":[function(require,module,exports){
 'use strict';
@@ -20528,6 +20694,731 @@ Header._idyll = {
 
 exports.default = Header;
 
+},{"react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\scrollama.js":[function(require,module,exports){
+'use strict';
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+(function (global, factory) {
+  (typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = global || self, global.scrollama = factory());
+})(undefined, function () {
+  'use strict';
+
+  // DOM helper functions
+
+  // public
+
+  function selectAll(selector) {
+    var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
+
+    if (typeof selector === 'string') {
+      return Array.from(parent.querySelectorAll(selector));
+    } else if (selector instanceof Element) {
+      return [selector];
+    } else if (selector instanceof NodeList) {
+      return Array.from(selector);
+    } else if (selector instanceof Array) {
+      return selector;
+    }
+    return [];
+  }
+
+  function scrollama() {
+    var cb = {};
+    var steps = [];
+    var globalOffset = void 0;
+
+    var previousYOffset = 0;
+    var progressThreshold = 0;
+
+    var direction = void 0;
+
+    var isEnabled = false;
+    var isProgressMode = false;
+    var isTriggerOnce = false;
+
+    var exclude = [];
+
+    /* HELPERS */
+    function err(msg) {
+      console.error('scrollama error: ' + msg);
+    }
+
+    function reset() {
+      cb = {
+        stepEnter: function stepEnter() {},
+        stepExit: function stepExit() {},
+        stepProgress: function stepProgress() {}
+      };
+      exclude = [];
+    }
+
+    function getIndex(node) {
+      return +node.getAttribute('data-scrollama-index');
+    }
+
+    function updateDirection() {
+      if (window.pageYOffset > previousYOffset) direction = 'down';else if (window.pageYOffset < previousYOffset) direction = 'up';
+      previousYOffset = window.pageYOffset;
+    }
+
+    function handleResize() {
+      steps = steps.map(function (step) {
+        return _extends({}, step, {
+          height: step.node.offsetHeight
+        });
+      });
+
+      if (isEnabled) updateObservers();
+    }
+
+    function handleEnable(shouldEnable) {
+      if (shouldEnable && !isEnabled) updateObservers();
+      if (!shouldEnable && isEnabled) disconnectObservers();
+      isEnabled = shouldEnable;
+    }
+
+    function createProgressThreshold(height) {
+      var count = Math.ceil(height / progressThreshold);
+      var t = [];
+      var ratio = 1 / count;
+      for (var i = 0; i < count + 1; i += 1) {
+        t.push(i * ratio);
+      }
+      return t;
+    }
+
+    function parseOffset(x) {
+      if (typeof x === 'string' && x.indexOf('px') > 0) {
+        var v = +x.replace('px', '');
+        if (!isNaN(v)) return { format: 'pixels', value: v };else {
+          err("offset value must be in 'px' format. Fallback to 0.5.");
+          return { format: 'percent', value: 0.5 };
+        }
+      } else if (typeof x === 'number' || !isNaN(+x)) {
+        if (x > 1) err('offset value is greater than 1. Fallback to 1.');
+        if (x < 0) err('offset value is lower than 0. Fallback to 0.');
+        return { format: 'percent', value: Math.min(Math.max(0, x), 1) };
+      }
+      return null;
+    }
+
+    /* NOTIFY CALLBACKS */
+    function notifyProgress(element, progress) {
+      var index = getIndex(element);
+      if (progress !== undefined) steps[index].progress = progress;
+      var resp = { element: element, index: index, progress: steps[index].progress };
+
+      if (steps[index].state === 'enter') cb.stepProgress(resp);
+    }
+
+    function notifyStepEnter(element, dir) {
+      var check = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+      var index = getIndex(element);
+      var step = steps[index];
+      var response = { element: element, index: index, direction: dir };
+
+      step.direction = dir;
+      step.state = 'enter';
+
+      // if (isPreserveOrder && check && dir === 'down') notifyOthers(index, 'above');
+      // if (isPreserveOrder && check && dir === 'up') notifyOthers(index, 'below');
+
+      if (!exclude[index]) cb.stepEnter(response);
+      if (isTriggerOnce) exclude[index] = true;
+    }
+
+    function notifyStepExit(element, dir) {
+      var index = getIndex(element);
+      var step = steps[index];
+
+      if (!step.state) return false;
+
+      var response = { element: element, index: index, direction: dir };
+
+      if (isProgressMode) {
+        if (dir === 'down' && step.progress < 1) notifyProgress(element, 1);else if (dir === 'up' && step.progress > 0) notifyProgress(element, 0);
+      }
+
+      step.direction = dir;
+      step.state = 'exit';
+
+      cb.stepExit(response);
+    }
+
+    /* OBSERVER - INTERSECT HANDLING */
+    function resizeStep(_ref) {
+      var entry = _ref[0];
+
+      var index = getIndex(entry.target);
+      var step = steps[index];
+      var h = entry.target.offsetHeight;
+      if (h !== step.height) {
+        step.height = h;
+        disconnectObserver(step);
+        updateStepObserver(step);
+        updateResizeObserver(step); // todo exclude
+      }
+    }
+
+    function intersectStep(_ref2) {
+      var entry = _ref2[0];
+
+      updateDirection();
+      var isIntersecting = entry.isIntersecting,
+          intersectionRatio = entry.intersectionRatio,
+          target = entry.target;
+
+      if (isIntersecting) notifyStepEnter(target, direction);else notifyStepExit(target, direction);
+    }
+
+    function intersectProgress(_ref3) {
+      var entry = _ref3[0];
+
+      updateDirection();
+      var index = getIndex(entry.target);
+      var step = steps[index];
+      var isIntersecting = entry.isIntersecting,
+          intersectionRatio = entry.intersectionRatio,
+          target = entry.target;
+
+      if (isIntersecting && step.state === 'enter') notifyProgress(target, intersectionRatio);
+    }
+
+    /*  OBSERVER - CREATION */
+    function updateResizeObserver(step) {
+      var observer = new ResizeObserver(resizeStep);
+      observer.observe(step.node);
+      step.observers.resize = observer;
+    }
+
+    function updateResizeObservers() {
+      steps.forEach(updateResizeObserver);
+    }
+
+    function updateStepObserver(step) {
+      var h = window.innerHeight;
+      var off = step.offset || globalOffset;
+      var factor = off.format === 'pixels' ? 1 : h;
+      var offset = off.value * factor;
+      var marginTop = step.height / 2 - offset;
+      var marginBottom = step.height / 2 - (h - offset);
+      var rootMargin = marginTop + 'px 0px ' + marginBottom + 'px 0px';
+
+      var threshold = 0.5;
+      var options = { rootMargin: rootMargin, threshold: threshold };
+      var observer = new IntersectionObserver(intersectStep, options);
+
+      observer.observe(step.node);
+      step.observers.step = observer;
+    }
+
+    function updateStepObservers() {
+      steps.forEach(updateStepObserver);
+    }
+
+    function updateProgressObserver(step) {
+      var h = window.innerHeight;
+      var off = step.offset || globalOffset;
+      var factor = off.format === 'pixels' ? 1 : h;
+      var offset = off.value * factor;
+      var marginTop = -offset + step.height;
+      var marginBottom = offset - h;
+      var rootMargin = marginTop + 'px 0px ' + marginBottom + 'px 0px';
+
+      var threshold = createProgressThreshold(step.height);
+      var options = { rootMargin: rootMargin, threshold: threshold };
+      var observer = new IntersectionObserver(intersectProgress, options);
+
+      observer.observe(step.node);
+      step.observers.progress = observer;
+    }
+
+    function updateProgressObservers() {
+      steps.forEach(updateProgressObserver);
+    }
+
+    function updateObservers() {
+      disconnectObservers();
+      updateResizeObservers();
+      updateStepObservers();
+      if (isProgressMode) updateProgressObservers();
+    }
+
+    function disconnectObserver(_ref4) {
+      var observers = _ref4.observers;
+
+      Object.keys(observers).map(function (name) {
+        observers[name].disconnect();
+      });
+    }
+
+    function disconnectObservers() {
+      steps.forEach(disconnectObserver);
+    }
+
+    /* SETUP FUNCTIONS */
+
+    function indexSteps() {
+      steps.forEach(function (step) {
+        return step.node.setAttribute('data-scrollama-index', step.index);
+      });
+    }
+
+    var S = {};
+
+    S.setup = function (_ref5) {
+      var step = _ref5.step,
+          _ref5$offset = _ref5.offset,
+          offset = _ref5$offset === undefined ? 0.5 : _ref5$offset,
+          _ref5$threshold = _ref5.threshold,
+          threshold = _ref5$threshold === undefined ? 4 : _ref5$threshold,
+          _ref5$progress = _ref5.progress,
+          progress = _ref5$progress === undefined ? false : _ref5$progress,
+          _ref5$order = _ref5.order,
+          order = _ref5$order === undefined ? true : _ref5$order,
+          _ref5$once = _ref5.once,
+          once = _ref5$once === undefined ? false : _ref5$once;
+
+      steps = selectAll(step).map(function (node, index) {
+        return {
+          index: index,
+          direction: undefined,
+          height: node.offsetHeight,
+          node: node,
+          observers: {},
+          offset: parseOffset(node.dataset.offset),
+          progress: 0,
+          state: undefined
+        };
+      });
+
+      if (!steps.length) {
+        err('no step elements');
+        return S;
+      }
+
+      // options
+      isProgressMode = progress;
+      isTriggerOnce = once;
+      progressThreshold = Math.max(1, +threshold);
+      reset();
+      indexSteps();
+      S.offsetTrigger(offset);
+      S.enable();
+      return S;
+    };
+
+    S.resize = function () {
+      handleResize();
+      return S;
+    };
+
+    S.enable = function () {
+      handleEnable(true);
+      return S;
+    };
+
+    S.disable = function () {
+      handleEnable(false);
+      return S;
+    };
+
+    S.destroy = function () {
+      handleEnable(false);
+      reset();
+    };
+
+    S.offsetTrigger = function (x) {
+      if (x === null || x === undefined) return globalOffset.value;
+      globalOffset = parseOffset(x);
+      return S;
+    };
+
+    S.onStepEnter = function (f) {
+      if (typeof f === 'function') cb.stepEnter = f;else err('onStepEnter requires a function');
+      return S;
+    };
+
+    S.onStepExit = function (f) {
+      if (typeof f === 'function') cb.stepExit = f;else err('onStepExit requires a function');
+      return S;
+    };
+
+    S.onStepProgress = function (f) {
+      if (typeof f === 'function') cb.stepProgress = f;else err('onStepProgress requires a function');
+      return S;
+    };
+
+    return S;
+  }
+
+  return scrollama;
+});
+
+},{}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\scroller.js":[function(require,module,exports){
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.__esModule = true;
+
+var _textContainer = require('./text-container');
+
+var _textContainer2 = _interopRequireDefault(_textContainer);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var React = require('react');
+
+var _require = require('idyll-component-children'),
+    filterChildren = _require.filterChildren,
+    mapChildren = _require.mapChildren;
+
+var d3 = require('d3-selection');
+
+var styles = {
+  SCROLL_GRAPHIC: {
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 'auto',
+    width: '100%',
+    transform: 'translate3d(0, 0, 0)',
+    zIndex: 0
+  },
+
+  SCROLL_GRAPHIC_INNER: {
+    position: 'absolute',
+    // right: '1rem',
+    left: 0,
+    right: 0,
+    top: '50%',
+    transform: 'translateY(-50%)'
+  }
+};
+
+var id = 0;
+
+var Scroller = function (_React$Component) {
+  _inherits(Scroller, _React$Component);
+
+  function Scroller(props) {
+    _classCallCheck(this, Scroller);
+
+    var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+
+    _this.id = id++;
+    _this.state = {
+      graphicHeight: 0,
+      graphicWidth: 0
+    };
+
+    _this.SCROLL_STEP_MAP = {};
+    _this.SCROLL_NAME_MAP = {};
+    return _this;
+  }
+
+  Scroller.prototype.componentDidMount = function componentDidMount() {
+    require('intersection-observer');
+    var scrollama = require('./scrollama');
+    // instantiate the scrollama
+    var scroller = scrollama();
+
+    // setup the instance, pass callback functions
+    scroller.setup({
+      step: '#idyll-scroll-' + this.id + ' .idyll-step', // required
+      progress: this.props.progress !== undefined ? true : false,
+      debug: this.props.debug,
+      offset: this.props.offset
+    }).onStepEnter(this.handleStepEnter.bind(this)).onStepProgress(this.handleStepProgress.bind(this));
+
+    // setup resize event
+
+    this.scroller = scroller;
+
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize.bind(this));
+  };
+
+  Scroller.prototype.handleStepEnter = function handleStepEnter(_ref) {
+    var element = _ref.element,
+        index = _ref.index,
+        direction = _ref.direction;
+
+    this.SCROLL_STEP_MAP[index] && this.SCROLL_STEP_MAP[index]();
+    var update = { currentStep: index };
+    if (this.SCROLL_NAME_MAP[index]) {
+      update.currentState = this.SCROLL_NAME_MAP[index];
+    }
+    this.props.updateProps && this.props.updateProps(update);
+    if (index === Object.keys(this.SCROLL_STEP_MAP).length - 1) {
+      d3.select('body').style('overflow', 'auto');
+    }
+  };
+
+  Scroller.prototype.handleResize = function handleResize() {
+    this.setState({
+      graphicHeight: window.innerHeight + 'px',
+      graphicWidth: window.innerWidth + 'px'
+    });
+    // this.scroller.resize();
+  };
+
+  Scroller.prototype.handleStepProgress = function handleStepProgress(response) {
+    var progress = response.progress;
+
+    var update = { progress: progress };
+    this.props.updateProps && this.props.updateProps(update);
+  };
+
+  Scroller.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    var _this2 = this;
+
+    if (nextProps.disableScroll && this.props.currentStep !== nextProps.currentStep) {
+      d3.selectAll('#idyll-scroll-' + this.id + ' .idyll-step').filter(function (d, i) {
+        return i === nextProps.currentStep;
+      }).node().scrollIntoView({ behavior: 'smooth' });
+    }
+    if (nextProps.disableScroll && this.props.currentState !== nextProps.currentState) {
+      d3.selectAll('#idyll-scroll-' + this.id + ' .idyll-step').filter(function (d, i) {
+        return nextProps.currentState === _this2.SCROLL_NAME_MAP[i];
+      }).node().scrollIntoView({ behavior: 'smooth' });
+    }
+    if (nextProps.disableScroll && (!nextProps.currentStep || nextProps.currentStep < Object.keys(this.SCROLL_STEP_MAP).length - 1)) {
+      d3.select('body').style('overflow', 'hidden');
+    }
+  };
+
+  Scroller.prototype.registerStep = function registerStep(elt, name, val) {
+    this.SCROLL_STEP_MAP[elt] = val;
+    this.SCROLL_NAME_MAP[elt] = name;
+  };
+
+  Scroller.prototype.render = function render() {
+    var _this3 = this;
+
+    var _props = this.props,
+        hasError = _props.hasError,
+        updateProps = _props.updateProps,
+        idyll = _props.idyll,
+        children = _props.children,
+        props = _objectWithoutProperties(_props, ['hasError', 'updateProps', 'idyll', 'children']);
+
+    var _state = this.state,
+        graphicHeight = _state.graphicHeight,
+        graphicWidth = _state.graphicWidth;
+
+    var graphicChildren = filterChildren(children, function (c) {
+      return c.type.name && c.type.name.toLowerCase() === 'graphic';
+    });
+
+    var StepContainer = props.fullWidthSteps ? 'div' : _textContainer2.default;
+    var stepIndex = 0;
+
+    return React.createElement('div', {
+      ref: function ref(_ref2) {
+        return _this3.ref = _ref2;
+      },
+      className: 'idyll-scroll',
+      id: 'idyll-scroll-' + this.id,
+      style: Object.assign({ position: 'relative' })
+    }, graphicChildren && graphicChildren.length ? React.createElement('div', {
+      className: 'idyll-scroll-graphic',
+      style: Object.assign({}, styles.SCROLL_GRAPHIC, {
+        height: graphicHeight,
+        zIndex: idyll && idyll.authorView ? 0 : -1
+      })
+    }, React.createElement('div', {
+      style: Object.assign({ width: graphicWidth }, styles.SCROLL_GRAPHIC_INNER)
+    }, graphicChildren)) : null, React.createElement(StepContainer, { idyll: idyll }, React.createElement('div', { className: 'idyll-scroll-text' }, mapChildren(filterChildren(children, function (c) {
+      return !c.type.name || c.type.name.toLowerCase() === 'step';
+    }), function (c) {
+      return React.cloneElement(c, {
+        registerStep: _this3.registerStep.bind(_this3),
+        stepIndex: stepIndex++
+      });
+    }))));
+  };
+
+  return Scroller;
+}(React.Component);
+
+Scroller._idyll = {
+  name: 'Scroller',
+  tagType: 'open',
+  children: ['\n  [Graphic fullWidth:true]\n    [VegaLite\n      data:`[{x: 0, y: 0}, {x: 1, y: 1}]`\n      spec:`{\n      mark: "line",\n      encoding: {\n        x: {\n          field: "x",\n          type: "quantitative"\n        },\n        y: {\n          field: "y",\n          type: "quantitative"\n        }\n      }\n    }`\n    width:"container"\n    height:300 /]\n  [/Graphic]\n  [Step]This is the content for step 1[/Step]\n  [Step]This is the content for step 2[/Step]\n  [Step]This is the content for step 3[/Step]'],
+  props: [{
+    name: 'currentStep',
+    type: 'variable',
+    example: 'x',
+    description: 'The index of the currently selected step.'
+  }, {
+    name: 'fullWidth',
+    type: 'boolean',
+    example: 'true',
+    description: 'Is this component fullWidth.'
+  }, {
+    name: 'currentState',
+    type: 'object',
+    description: 'The state value associated with the currently selected step. Note you must set the state property on the step components for this value to update.'
+  }, {
+    name: 'progress',
+    type: 'number',
+    description: 'The percent of completion (0-1) of the currently selected step'
+  }, {
+    name: 'offset',
+    type: 'number',
+    description: '(number 0 - 1, or string with "px"): How far from the top of the viewport to trigger a step. (default: 0.5) (middle of screen)'
+  }, {
+    name: 'debug',
+    type: 'boolean',
+    description: 'Show scroller debug information.'
+  }]
+};
+
+exports.default = Scroller;
+
+},{"./scrollama":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\scrollama.js","./text-container":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\text-container.js","d3-selection":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\node_modules\\d3-selection\\dist\\d3-selection.js","idyll-component-children":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-component-children\\dist\\cjs\\index.js","intersection-observer":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\intersection-observer\\intersection-observer.js","react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\step.js":[function(require,module,exports){
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var idx = 0;
+
+var Step = function (_React$Component) {
+  _inherits(Step, _React$Component);
+
+  function Step() {
+    _classCallCheck(this, Step);
+
+    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
+
+  Step.prototype.componentDidMount = function componentDidMount() {
+    var _idx = this.props.stepIndex === undefined ? idx++ : this.props.stepIndex;
+    this.props.registerStep && this.props.registerStep(_idx, this.props.state, (this.props.onEnter || function () {}).bind(this));
+  };
+
+  Step.prototype.render = function render() {
+    var _this2 = this;
+
+    var _props = this.props,
+        idyll = _props.idyll,
+        updateProps = _props.updateProps,
+        hasError = _props.hasError,
+        registerStep = _props.registerStep,
+        onEnter = _props.onEnter,
+        state = _props.state,
+        className = _props.className,
+        stepIndex = _props.stepIndex,
+        props = _objectWithoutProperties(_props, ['idyll', 'updateProps', 'hasError', 'registerStep', 'onEnter', 'state', 'className', 'stepIndex']);
+
+    return _react2.default.createElement('div', _extends({
+      ref: function ref(_ref) {
+        return _this2.ref = _ref;
+      },
+      className: 'idyll-step ' + (className || '')
+    }, props));
+  };
+
+  return Step;
+}(_react2.default.Component);
+
+Step._idyll = {
+  name: 'Step',
+  tagType: 'open'
+};
+
+exports.default = Step;
+
 },{"react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\text-container.js":[function(require,module,exports){
 'use strict';
 
@@ -20618,7 +21509,998 @@ TextContainer._idyll = {
 
 exports.default = TextContainer;
 
-},{"react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-document\\dist\\cjs\\components\\author-tool.js":[function(require,module,exports){
+},{"react":"react"}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\node_modules\\d3-selection\\dist\\d3-selection.js":[function(require,module,exports){
+// https://d3js.org/d3-selection/ v1.4.2 Copyright 2020 Mike Bostock
+(function (global, factory) {
+typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+typeof define === 'function' && define.amd ? define(['exports'], factory) :
+(global = global || self, factory(global.d3 = global.d3 || {}));
+}(this, function (exports) { 'use strict';
+
+var xhtml = "http://www.w3.org/1999/xhtml";
+
+var namespaces = {
+  svg: "http://www.w3.org/2000/svg",
+  xhtml: xhtml,
+  xlink: "http://www.w3.org/1999/xlink",
+  xml: "http://www.w3.org/XML/1998/namespace",
+  xmlns: "http://www.w3.org/2000/xmlns/"
+};
+
+function namespace(name) {
+  var prefix = name += "", i = prefix.indexOf(":");
+  if (i >= 0 && (prefix = name.slice(0, i)) !== "xmlns") name = name.slice(i + 1);
+  return namespaces.hasOwnProperty(prefix) ? {space: namespaces[prefix], local: name} : name;
+}
+
+function creatorInherit(name) {
+  return function() {
+    var document = this.ownerDocument,
+        uri = this.namespaceURI;
+    return uri === xhtml && document.documentElement.namespaceURI === xhtml
+        ? document.createElement(name)
+        : document.createElementNS(uri, name);
+  };
+}
+
+function creatorFixed(fullname) {
+  return function() {
+    return this.ownerDocument.createElementNS(fullname.space, fullname.local);
+  };
+}
+
+function creator(name) {
+  var fullname = namespace(name);
+  return (fullname.local
+      ? creatorFixed
+      : creatorInherit)(fullname);
+}
+
+function none() {}
+
+function selector(selector) {
+  return selector == null ? none : function() {
+    return this.querySelector(selector);
+  };
+}
+
+function selection_select(select) {
+  if (typeof select !== "function") select = selector(select);
+
+  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, subgroup = subgroups[j] = new Array(n), node, subnode, i = 0; i < n; ++i) {
+      if ((node = group[i]) && (subnode = select.call(node, node.__data__, i, group))) {
+        if ("__data__" in node) subnode.__data__ = node.__data__;
+        subgroup[i] = subnode;
+      }
+    }
+  }
+
+  return new Selection(subgroups, this._parents);
+}
+
+function empty() {
+  return [];
+}
+
+function selectorAll(selector) {
+  return selector == null ? empty : function() {
+    return this.querySelectorAll(selector);
+  };
+}
+
+function selection_selectAll(select) {
+  if (typeof select !== "function") select = selectorAll(select);
+
+  for (var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, node, i = 0; i < n; ++i) {
+      if (node = group[i]) {
+        subgroups.push(select.call(node, node.__data__, i, group));
+        parents.push(node);
+      }
+    }
+  }
+
+  return new Selection(subgroups, parents);
+}
+
+function matcher(selector) {
+  return function() {
+    return this.matches(selector);
+  };
+}
+
+function selection_filter(match) {
+  if (typeof match !== "function") match = matcher(match);
+
+  for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i) {
+      if ((node = group[i]) && match.call(node, node.__data__, i, group)) {
+        subgroup.push(node);
+      }
+    }
+  }
+
+  return new Selection(subgroups, this._parents);
+}
+
+function sparse(update) {
+  return new Array(update.length);
+}
+
+function selection_enter() {
+  return new Selection(this._enter || this._groups.map(sparse), this._parents);
+}
+
+function EnterNode(parent, datum) {
+  this.ownerDocument = parent.ownerDocument;
+  this.namespaceURI = parent.namespaceURI;
+  this._next = null;
+  this._parent = parent;
+  this.__data__ = datum;
+}
+
+EnterNode.prototype = {
+  constructor: EnterNode,
+  appendChild: function(child) { return this._parent.insertBefore(child, this._next); },
+  insertBefore: function(child, next) { return this._parent.insertBefore(child, next); },
+  querySelector: function(selector) { return this._parent.querySelector(selector); },
+  querySelectorAll: function(selector) { return this._parent.querySelectorAll(selector); }
+};
+
+function constant(x) {
+  return function() {
+    return x;
+  };
+}
+
+var keyPrefix = "$"; // Protect against keys like “__proto__”.
+
+function bindIndex(parent, group, enter, update, exit, data) {
+  var i = 0,
+      node,
+      groupLength = group.length,
+      dataLength = data.length;
+
+  // Put any non-null nodes that fit into update.
+  // Put any null nodes into enter.
+  // Put any remaining data into enter.
+  for (; i < dataLength; ++i) {
+    if (node = group[i]) {
+      node.__data__ = data[i];
+      update[i] = node;
+    } else {
+      enter[i] = new EnterNode(parent, data[i]);
+    }
+  }
+
+  // Put any non-null nodes that don’t fit into exit.
+  for (; i < groupLength; ++i) {
+    if (node = group[i]) {
+      exit[i] = node;
+    }
+  }
+}
+
+function bindKey(parent, group, enter, update, exit, data, key) {
+  var i,
+      node,
+      nodeByKeyValue = {},
+      groupLength = group.length,
+      dataLength = data.length,
+      keyValues = new Array(groupLength),
+      keyValue;
+
+  // Compute the key for each node.
+  // If multiple nodes have the same key, the duplicates are added to exit.
+  for (i = 0; i < groupLength; ++i) {
+    if (node = group[i]) {
+      keyValues[i] = keyValue = keyPrefix + key.call(node, node.__data__, i, group);
+      if (keyValue in nodeByKeyValue) {
+        exit[i] = node;
+      } else {
+        nodeByKeyValue[keyValue] = node;
+      }
+    }
+  }
+
+  // Compute the key for each datum.
+  // If there a node associated with this key, join and add it to update.
+  // If there is not (or the key is a duplicate), add it to enter.
+  for (i = 0; i < dataLength; ++i) {
+    keyValue = keyPrefix + key.call(parent, data[i], i, data);
+    if (node = nodeByKeyValue[keyValue]) {
+      update[i] = node;
+      node.__data__ = data[i];
+      nodeByKeyValue[keyValue] = null;
+    } else {
+      enter[i] = new EnterNode(parent, data[i]);
+    }
+  }
+
+  // Add any remaining nodes that were not bound to data to exit.
+  for (i = 0; i < groupLength; ++i) {
+    if ((node = group[i]) && (nodeByKeyValue[keyValues[i]] === node)) {
+      exit[i] = node;
+    }
+  }
+}
+
+function selection_data(value, key) {
+  if (!value) {
+    data = new Array(this.size()), j = -1;
+    this.each(function(d) { data[++j] = d; });
+    return data;
+  }
+
+  var bind = key ? bindKey : bindIndex,
+      parents = this._parents,
+      groups = this._groups;
+
+  if (typeof value !== "function") value = constant(value);
+
+  for (var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
+    var parent = parents[j],
+        group = groups[j],
+        groupLength = group.length,
+        data = value.call(parent, parent && parent.__data__, j, parents),
+        dataLength = data.length,
+        enterGroup = enter[j] = new Array(dataLength),
+        updateGroup = update[j] = new Array(dataLength),
+        exitGroup = exit[j] = new Array(groupLength);
+
+    bind(parent, group, enterGroup, updateGroup, exitGroup, data, key);
+
+    // Now connect the enter nodes to their following update node, such that
+    // appendChild can insert the materialized enter node before this node,
+    // rather than at the end of the parent node.
+    for (var i0 = 0, i1 = 0, previous, next; i0 < dataLength; ++i0) {
+      if (previous = enterGroup[i0]) {
+        if (i0 >= i1) i1 = i0 + 1;
+        while (!(next = updateGroup[i1]) && ++i1 < dataLength);
+        previous._next = next || null;
+      }
+    }
+  }
+
+  update = new Selection(update, parents);
+  update._enter = enter;
+  update._exit = exit;
+  return update;
+}
+
+function selection_exit() {
+  return new Selection(this._exit || this._groups.map(sparse), this._parents);
+}
+
+function selection_join(onenter, onupdate, onexit) {
+  var enter = this.enter(), update = this, exit = this.exit();
+  enter = typeof onenter === "function" ? onenter(enter) : enter.append(onenter + "");
+  if (onupdate != null) update = onupdate(update);
+  if (onexit == null) exit.remove(); else onexit(exit);
+  return enter && update ? enter.merge(update).order() : update;
+}
+
+function selection_merge(selection) {
+
+  for (var groups0 = this._groups, groups1 = selection._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
+    for (var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge = merges[j] = new Array(n), node, i = 0; i < n; ++i) {
+      if (node = group0[i] || group1[i]) {
+        merge[i] = node;
+      }
+    }
+  }
+
+  for (; j < m0; ++j) {
+    merges[j] = groups0[j];
+  }
+
+  return new Selection(merges, this._parents);
+}
+
+function selection_order() {
+
+  for (var groups = this._groups, j = -1, m = groups.length; ++j < m;) {
+    for (var group = groups[j], i = group.length - 1, next = group[i], node; --i >= 0;) {
+      if (node = group[i]) {
+        if (next && node.compareDocumentPosition(next) ^ 4) next.parentNode.insertBefore(node, next);
+        next = node;
+      }
+    }
+  }
+
+  return this;
+}
+
+function selection_sort(compare) {
+  if (!compare) compare = ascending;
+
+  function compareNode(a, b) {
+    return a && b ? compare(a.__data__, b.__data__) : !a - !b;
+  }
+
+  for (var groups = this._groups, m = groups.length, sortgroups = new Array(m), j = 0; j < m; ++j) {
+    for (var group = groups[j], n = group.length, sortgroup = sortgroups[j] = new Array(n), node, i = 0; i < n; ++i) {
+      if (node = group[i]) {
+        sortgroup[i] = node;
+      }
+    }
+    sortgroup.sort(compareNode);
+  }
+
+  return new Selection(sortgroups, this._parents).order();
+}
+
+function ascending(a, b) {
+  return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+}
+
+function selection_call() {
+  var callback = arguments[0];
+  arguments[0] = this;
+  callback.apply(null, arguments);
+  return this;
+}
+
+function selection_nodes() {
+  var nodes = new Array(this.size()), i = -1;
+  this.each(function() { nodes[++i] = this; });
+  return nodes;
+}
+
+function selection_node() {
+
+  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
+    for (var group = groups[j], i = 0, n = group.length; i < n; ++i) {
+      var node = group[i];
+      if (node) return node;
+    }
+  }
+
+  return null;
+}
+
+function selection_size() {
+  var size = 0;
+  this.each(function() { ++size; });
+  return size;
+}
+
+function selection_empty() {
+  return !this.node();
+}
+
+function selection_each(callback) {
+
+  for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
+    for (var group = groups[j], i = 0, n = group.length, node; i < n; ++i) {
+      if (node = group[i]) callback.call(node, node.__data__, i, group);
+    }
+  }
+
+  return this;
+}
+
+function attrRemove(name) {
+  return function() {
+    this.removeAttribute(name);
+  };
+}
+
+function attrRemoveNS(fullname) {
+  return function() {
+    this.removeAttributeNS(fullname.space, fullname.local);
+  };
+}
+
+function attrConstant(name, value) {
+  return function() {
+    this.setAttribute(name, value);
+  };
+}
+
+function attrConstantNS(fullname, value) {
+  return function() {
+    this.setAttributeNS(fullname.space, fullname.local, value);
+  };
+}
+
+function attrFunction(name, value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    if (v == null) this.removeAttribute(name);
+    else this.setAttribute(name, v);
+  };
+}
+
+function attrFunctionNS(fullname, value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    if (v == null) this.removeAttributeNS(fullname.space, fullname.local);
+    else this.setAttributeNS(fullname.space, fullname.local, v);
+  };
+}
+
+function selection_attr(name, value) {
+  var fullname = namespace(name);
+
+  if (arguments.length < 2) {
+    var node = this.node();
+    return fullname.local
+        ? node.getAttributeNS(fullname.space, fullname.local)
+        : node.getAttribute(fullname);
+  }
+
+  return this.each((value == null
+      ? (fullname.local ? attrRemoveNS : attrRemove) : (typeof value === "function"
+      ? (fullname.local ? attrFunctionNS : attrFunction)
+      : (fullname.local ? attrConstantNS : attrConstant)))(fullname, value));
+}
+
+function defaultView(node) {
+  return (node.ownerDocument && node.ownerDocument.defaultView) // node is a Node
+      || (node.document && node) // node is a Window
+      || node.defaultView; // node is a Document
+}
+
+function styleRemove(name) {
+  return function() {
+    this.style.removeProperty(name);
+  };
+}
+
+function styleConstant(name, value, priority) {
+  return function() {
+    this.style.setProperty(name, value, priority);
+  };
+}
+
+function styleFunction(name, value, priority) {
+  return function() {
+    var v = value.apply(this, arguments);
+    if (v == null) this.style.removeProperty(name);
+    else this.style.setProperty(name, v, priority);
+  };
+}
+
+function selection_style(name, value, priority) {
+  return arguments.length > 1
+      ? this.each((value == null
+            ? styleRemove : typeof value === "function"
+            ? styleFunction
+            : styleConstant)(name, value, priority == null ? "" : priority))
+      : styleValue(this.node(), name);
+}
+
+function styleValue(node, name) {
+  return node.style.getPropertyValue(name)
+      || defaultView(node).getComputedStyle(node, null).getPropertyValue(name);
+}
+
+function propertyRemove(name) {
+  return function() {
+    delete this[name];
+  };
+}
+
+function propertyConstant(name, value) {
+  return function() {
+    this[name] = value;
+  };
+}
+
+function propertyFunction(name, value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    if (v == null) delete this[name];
+    else this[name] = v;
+  };
+}
+
+function selection_property(name, value) {
+  return arguments.length > 1
+      ? this.each((value == null
+          ? propertyRemove : typeof value === "function"
+          ? propertyFunction
+          : propertyConstant)(name, value))
+      : this.node()[name];
+}
+
+function classArray(string) {
+  return string.trim().split(/^|\s+/);
+}
+
+function classList(node) {
+  return node.classList || new ClassList(node);
+}
+
+function ClassList(node) {
+  this._node = node;
+  this._names = classArray(node.getAttribute("class") || "");
+}
+
+ClassList.prototype = {
+  add: function(name) {
+    var i = this._names.indexOf(name);
+    if (i < 0) {
+      this._names.push(name);
+      this._node.setAttribute("class", this._names.join(" "));
+    }
+  },
+  remove: function(name) {
+    var i = this._names.indexOf(name);
+    if (i >= 0) {
+      this._names.splice(i, 1);
+      this._node.setAttribute("class", this._names.join(" "));
+    }
+  },
+  contains: function(name) {
+    return this._names.indexOf(name) >= 0;
+  }
+};
+
+function classedAdd(node, names) {
+  var list = classList(node), i = -1, n = names.length;
+  while (++i < n) list.add(names[i]);
+}
+
+function classedRemove(node, names) {
+  var list = classList(node), i = -1, n = names.length;
+  while (++i < n) list.remove(names[i]);
+}
+
+function classedTrue(names) {
+  return function() {
+    classedAdd(this, names);
+  };
+}
+
+function classedFalse(names) {
+  return function() {
+    classedRemove(this, names);
+  };
+}
+
+function classedFunction(names, value) {
+  return function() {
+    (value.apply(this, arguments) ? classedAdd : classedRemove)(this, names);
+  };
+}
+
+function selection_classed(name, value) {
+  var names = classArray(name + "");
+
+  if (arguments.length < 2) {
+    var list = classList(this.node()), i = -1, n = names.length;
+    while (++i < n) if (!list.contains(names[i])) return false;
+    return true;
+  }
+
+  return this.each((typeof value === "function"
+      ? classedFunction : value
+      ? classedTrue
+      : classedFalse)(names, value));
+}
+
+function textRemove() {
+  this.textContent = "";
+}
+
+function textConstant(value) {
+  return function() {
+    this.textContent = value;
+  };
+}
+
+function textFunction(value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    this.textContent = v == null ? "" : v;
+  };
+}
+
+function selection_text(value) {
+  return arguments.length
+      ? this.each(value == null
+          ? textRemove : (typeof value === "function"
+          ? textFunction
+          : textConstant)(value))
+      : this.node().textContent;
+}
+
+function htmlRemove() {
+  this.innerHTML = "";
+}
+
+function htmlConstant(value) {
+  return function() {
+    this.innerHTML = value;
+  };
+}
+
+function htmlFunction(value) {
+  return function() {
+    var v = value.apply(this, arguments);
+    this.innerHTML = v == null ? "" : v;
+  };
+}
+
+function selection_html(value) {
+  return arguments.length
+      ? this.each(value == null
+          ? htmlRemove : (typeof value === "function"
+          ? htmlFunction
+          : htmlConstant)(value))
+      : this.node().innerHTML;
+}
+
+function raise() {
+  if (this.nextSibling) this.parentNode.appendChild(this);
+}
+
+function selection_raise() {
+  return this.each(raise);
+}
+
+function lower() {
+  if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
+}
+
+function selection_lower() {
+  return this.each(lower);
+}
+
+function selection_append(name) {
+  var create = typeof name === "function" ? name : creator(name);
+  return this.select(function() {
+    return this.appendChild(create.apply(this, arguments));
+  });
+}
+
+function constantNull() {
+  return null;
+}
+
+function selection_insert(name, before) {
+  var create = typeof name === "function" ? name : creator(name),
+      select = before == null ? constantNull : typeof before === "function" ? before : selector(before);
+  return this.select(function() {
+    return this.insertBefore(create.apply(this, arguments), select.apply(this, arguments) || null);
+  });
+}
+
+function remove() {
+  var parent = this.parentNode;
+  if (parent) parent.removeChild(this);
+}
+
+function selection_remove() {
+  return this.each(remove);
+}
+
+function selection_cloneShallow() {
+  var clone = this.cloneNode(false), parent = this.parentNode;
+  return parent ? parent.insertBefore(clone, this.nextSibling) : clone;
+}
+
+function selection_cloneDeep() {
+  var clone = this.cloneNode(true), parent = this.parentNode;
+  return parent ? parent.insertBefore(clone, this.nextSibling) : clone;
+}
+
+function selection_clone(deep) {
+  return this.select(deep ? selection_cloneDeep : selection_cloneShallow);
+}
+
+function selection_datum(value) {
+  return arguments.length
+      ? this.property("__data__", value)
+      : this.node().__data__;
+}
+
+var filterEvents = {};
+
+exports.event = null;
+
+if (typeof document !== "undefined") {
+  var element = document.documentElement;
+  if (!("onmouseenter" in element)) {
+    filterEvents = {mouseenter: "mouseover", mouseleave: "mouseout"};
+  }
+}
+
+function filterContextListener(listener, index, group) {
+  listener = contextListener(listener, index, group);
+  return function(event) {
+    var related = event.relatedTarget;
+    if (!related || (related !== this && !(related.compareDocumentPosition(this) & 8))) {
+      listener.call(this, event);
+    }
+  };
+}
+
+function contextListener(listener, index, group) {
+  return function(event1) {
+    var event0 = exports.event; // Events can be reentrant (e.g., focus).
+    exports.event = event1;
+    try {
+      listener.call(this, this.__data__, index, group);
+    } finally {
+      exports.event = event0;
+    }
+  };
+}
+
+function parseTypenames(typenames) {
+  return typenames.trim().split(/^|\s+/).map(function(t) {
+    var name = "", i = t.indexOf(".");
+    if (i >= 0) name = t.slice(i + 1), t = t.slice(0, i);
+    return {type: t, name: name};
+  });
+}
+
+function onRemove(typename) {
+  return function() {
+    var on = this.__on;
+    if (!on) return;
+    for (var j = 0, i = -1, m = on.length, o; j < m; ++j) {
+      if (o = on[j], (!typename.type || o.type === typename.type) && o.name === typename.name) {
+        this.removeEventListener(o.type, o.listener, o.capture);
+      } else {
+        on[++i] = o;
+      }
+    }
+    if (++i) on.length = i;
+    else delete this.__on;
+  };
+}
+
+function onAdd(typename, value, capture) {
+  var wrap = filterEvents.hasOwnProperty(typename.type) ? filterContextListener : contextListener;
+  return function(d, i, group) {
+    var on = this.__on, o, listener = wrap(value, i, group);
+    if (on) for (var j = 0, m = on.length; j < m; ++j) {
+      if ((o = on[j]).type === typename.type && o.name === typename.name) {
+        this.removeEventListener(o.type, o.listener, o.capture);
+        this.addEventListener(o.type, o.listener = listener, o.capture = capture);
+        o.value = value;
+        return;
+      }
+    }
+    this.addEventListener(typename.type, listener, capture);
+    o = {type: typename.type, name: typename.name, value: value, listener: listener, capture: capture};
+    if (!on) this.__on = [o];
+    else on.push(o);
+  };
+}
+
+function selection_on(typename, value, capture) {
+  var typenames = parseTypenames(typename + ""), i, n = typenames.length, t;
+
+  if (arguments.length < 2) {
+    var on = this.node().__on;
+    if (on) for (var j = 0, m = on.length, o; j < m; ++j) {
+      for (i = 0, o = on[j]; i < n; ++i) {
+        if ((t = typenames[i]).type === o.type && t.name === o.name) {
+          return o.value;
+        }
+      }
+    }
+    return;
+  }
+
+  on = value ? onAdd : onRemove;
+  if (capture == null) capture = false;
+  for (i = 0; i < n; ++i) this.each(on(typenames[i], value, capture));
+  return this;
+}
+
+function customEvent(event1, listener, that, args) {
+  var event0 = exports.event;
+  event1.sourceEvent = exports.event;
+  exports.event = event1;
+  try {
+    return listener.apply(that, args);
+  } finally {
+    exports.event = event0;
+  }
+}
+
+function dispatchEvent(node, type, params) {
+  var window = defaultView(node),
+      event = window.CustomEvent;
+
+  if (typeof event === "function") {
+    event = new event(type, params);
+  } else {
+    event = window.document.createEvent("Event");
+    if (params) event.initEvent(type, params.bubbles, params.cancelable), event.detail = params.detail;
+    else event.initEvent(type, false, false);
+  }
+
+  node.dispatchEvent(event);
+}
+
+function dispatchConstant(type, params) {
+  return function() {
+    return dispatchEvent(this, type, params);
+  };
+}
+
+function dispatchFunction(type, params) {
+  return function() {
+    return dispatchEvent(this, type, params.apply(this, arguments));
+  };
+}
+
+function selection_dispatch(type, params) {
+  return this.each((typeof params === "function"
+      ? dispatchFunction
+      : dispatchConstant)(type, params));
+}
+
+var root = [null];
+
+function Selection(groups, parents) {
+  this._groups = groups;
+  this._parents = parents;
+}
+
+function selection() {
+  return new Selection([[document.documentElement]], root);
+}
+
+Selection.prototype = selection.prototype = {
+  constructor: Selection,
+  select: selection_select,
+  selectAll: selection_selectAll,
+  filter: selection_filter,
+  data: selection_data,
+  enter: selection_enter,
+  exit: selection_exit,
+  join: selection_join,
+  merge: selection_merge,
+  order: selection_order,
+  sort: selection_sort,
+  call: selection_call,
+  nodes: selection_nodes,
+  node: selection_node,
+  size: selection_size,
+  empty: selection_empty,
+  each: selection_each,
+  attr: selection_attr,
+  style: selection_style,
+  property: selection_property,
+  classed: selection_classed,
+  text: selection_text,
+  html: selection_html,
+  raise: selection_raise,
+  lower: selection_lower,
+  append: selection_append,
+  insert: selection_insert,
+  remove: selection_remove,
+  clone: selection_clone,
+  datum: selection_datum,
+  on: selection_on,
+  dispatch: selection_dispatch
+};
+
+function select(selector) {
+  return typeof selector === "string"
+      ? new Selection([[document.querySelector(selector)]], [document.documentElement])
+      : new Selection([[selector]], root);
+}
+
+function create(name) {
+  return select(creator(name).call(document.documentElement));
+}
+
+var nextId = 0;
+
+function local() {
+  return new Local;
+}
+
+function Local() {
+  this._ = "@" + (++nextId).toString(36);
+}
+
+Local.prototype = local.prototype = {
+  constructor: Local,
+  get: function(node) {
+    var id = this._;
+    while (!(id in node)) if (!(node = node.parentNode)) return;
+    return node[id];
+  },
+  set: function(node, value) {
+    return node[this._] = value;
+  },
+  remove: function(node) {
+    return this._ in node && delete node[this._];
+  },
+  toString: function() {
+    return this._;
+  }
+};
+
+function sourceEvent() {
+  var current = exports.event, source;
+  while (source = current.sourceEvent) current = source;
+  return current;
+}
+
+function point(node, event) {
+  var svg = node.ownerSVGElement || node;
+
+  if (svg.createSVGPoint) {
+    var point = svg.createSVGPoint();
+    point.x = event.clientX, point.y = event.clientY;
+    point = point.matrixTransform(node.getScreenCTM().inverse());
+    return [point.x, point.y];
+  }
+
+  var rect = node.getBoundingClientRect();
+  return [event.clientX - rect.left - node.clientLeft, event.clientY - rect.top - node.clientTop];
+}
+
+function mouse(node) {
+  var event = sourceEvent();
+  if (event.changedTouches) event = event.changedTouches[0];
+  return point(node, event);
+}
+
+function selectAll(selector) {
+  return typeof selector === "string"
+      ? new Selection([document.querySelectorAll(selector)], [document.documentElement])
+      : new Selection([selector == null ? [] : selector], root);
+}
+
+function touch(node, touches, identifier) {
+  if (arguments.length < 3) identifier = touches, touches = sourceEvent().changedTouches;
+
+  for (var i = 0, n = touches ? touches.length : 0, touch; i < n; ++i) {
+    if ((touch = touches[i]).identifier === identifier) {
+      return point(node, touch);
+    }
+  }
+
+  return null;
+}
+
+function touches(node, touches) {
+  if (touches == null) touches = sourceEvent().touches;
+
+  for (var i = 0, n = touches ? touches.length : 0, points = new Array(n); i < n; ++i) {
+    points[i] = point(node, touches[i]);
+  }
+
+  return points;
+}
+
+exports.clientPoint = point;
+exports.create = create;
+exports.creator = creator;
+exports.customEvent = customEvent;
+exports.local = local;
+exports.matcher = matcher;
+exports.mouse = mouse;
+exports.namespace = namespace;
+exports.namespaces = namespaces;
+exports.select = select;
+exports.selectAll = selectAll;
+exports.selection = selection;
+exports.selector = selector;
+exports.selectorAll = selectorAll;
+exports.style = styleValue;
+exports.touch = touch;
+exports.touches = touches;
+exports.window = defaultView;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+}));
+
+},{}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-document\\dist\\cjs\\components\\author-tool.js":[function(require,module,exports){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -22943,6 +24825,685 @@ if (typeof Object.create === 'function') {
     }
   };
 }
+
+},{}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\intersection-observer\\intersection-observer.js":[function(require,module,exports){
+'use strict';
+
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the W3C SOFTWARE AND DOCUMENT NOTICE AND LICENSE.
+ *
+ *  https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+ *
+ */
+
+(function (window, document) {
+  'use strict';
+
+  // Exits early if all IntersectionObserver and IntersectionObserverEntry
+  // features are natively supported.
+
+  if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
+
+    // Minimal polyfill for Edge 15's lack of `isIntersecting`
+    // See: https://github.com/w3c/IntersectionObserver/issues/211
+    if (!('isIntersecting' in window.IntersectionObserverEntry.prototype)) {
+      Object.defineProperty(window.IntersectionObserverEntry.prototype, 'isIntersecting', {
+        get: function get() {
+          return this.intersectionRatio > 0;
+        }
+      });
+    }
+    return;
+  }
+
+  /**
+   * An IntersectionObserver registry. This registry exists to hold a strong
+   * reference to IntersectionObserver instances currently observing a target
+   * element. Without this registry, instances without another reference may be
+   * garbage collected.
+   */
+  var registry = [];
+
+  /**
+   * Creates the global IntersectionObserverEntry constructor.
+   * https://w3c.github.io/IntersectionObserver/#intersection-observer-entry
+   * @param {Object} entry A dictionary of instance properties.
+   * @constructor
+   */
+  function IntersectionObserverEntry(entry) {
+    this.time = entry.time;
+    this.target = entry.target;
+    this.rootBounds = entry.rootBounds;
+    this.boundingClientRect = entry.boundingClientRect;
+    this.intersectionRect = entry.intersectionRect || getEmptyRect();
+    this.isIntersecting = !!entry.intersectionRect;
+
+    // Calculates the intersection ratio.
+    var targetRect = this.boundingClientRect;
+    var targetArea = targetRect.width * targetRect.height;
+    var intersectionRect = this.intersectionRect;
+    var intersectionArea = intersectionRect.width * intersectionRect.height;
+
+    // Sets intersection ratio.
+    if (targetArea) {
+      // Round the intersection ratio to avoid floating point math issues:
+      // https://github.com/w3c/IntersectionObserver/issues/324
+      this.intersectionRatio = Number((intersectionArea / targetArea).toFixed(4));
+    } else {
+      // If area is zero and is intersecting, sets to 1, otherwise to 0
+      this.intersectionRatio = this.isIntersecting ? 1 : 0;
+    }
+  }
+
+  /**
+   * Creates the global IntersectionObserver constructor.
+   * https://w3c.github.io/IntersectionObserver/#intersection-observer-interface
+   * @param {Function} callback The function to be invoked after intersection
+   *     changes have queued. The function is not invoked if the queue has
+   *     been emptied by calling the `takeRecords` method.
+   * @param {Object=} opt_options Optional configuration options.
+   * @constructor
+   */
+  function IntersectionObserver(callback, opt_options) {
+
+    var options = opt_options || {};
+
+    if (typeof callback != 'function') {
+      throw new Error('callback must be a function');
+    }
+
+    if (options.root && options.root.nodeType != 1) {
+      throw new Error('root must be an Element');
+    }
+
+    // Binds and throttles `this._checkForIntersections`.
+    this._checkForIntersections = throttle(this._checkForIntersections.bind(this), this.THROTTLE_TIMEOUT);
+
+    // Private properties.
+    this._callback = callback;
+    this._observationTargets = [];
+    this._queuedEntries = [];
+    this._rootMarginValues = this._parseRootMargin(options.rootMargin);
+
+    // Public properties.
+    this.thresholds = this._initThresholds(options.threshold);
+    this.root = options.root || null;
+    this.rootMargin = this._rootMarginValues.map(function (margin) {
+      return margin.value + margin.unit;
+    }).join(' ');
+  }
+
+  /**
+   * The minimum interval within which the document will be checked for
+   * intersection changes.
+   */
+  IntersectionObserver.prototype.THROTTLE_TIMEOUT = 100;
+
+  /**
+   * The frequency in which the polyfill polls for intersection changes.
+   * this can be updated on a per instance basis and must be set prior to
+   * calling `observe` on the first target.
+   */
+  IntersectionObserver.prototype.POLL_INTERVAL = null;
+
+  /**
+   * Use a mutation observer on the root element
+   * to detect intersection changes.
+   */
+  IntersectionObserver.prototype.USE_MUTATION_OBSERVER = true;
+
+  /**
+   * Starts observing a target element for intersection changes based on
+   * the thresholds values.
+   * @param {Element} target The DOM element to observe.
+   */
+  IntersectionObserver.prototype.observe = function (target) {
+    var isTargetAlreadyObserved = this._observationTargets.some(function (item) {
+      return item.element == target;
+    });
+
+    if (isTargetAlreadyObserved) {
+      return;
+    }
+
+    if (!(target && target.nodeType == 1)) {
+      throw new Error('target must be an Element');
+    }
+
+    this._registerInstance();
+    this._observationTargets.push({ element: target, entry: null });
+    this._monitorIntersections();
+    this._checkForIntersections();
+  };
+
+  /**
+   * Stops observing a target element for intersection changes.
+   * @param {Element} target The DOM element to observe.
+   */
+  IntersectionObserver.prototype.unobserve = function (target) {
+    this._observationTargets = this._observationTargets.filter(function (item) {
+
+      return item.element != target;
+    });
+    if (!this._observationTargets.length) {
+      this._unmonitorIntersections();
+      this._unregisterInstance();
+    }
+  };
+
+  /**
+   * Stops observing all target elements for intersection changes.
+   */
+  IntersectionObserver.prototype.disconnect = function () {
+    this._observationTargets = [];
+    this._unmonitorIntersections();
+    this._unregisterInstance();
+  };
+
+  /**
+   * Returns any queue entries that have not yet been reported to the
+   * callback and clears the queue. This can be used in conjunction with the
+   * callback to obtain the absolute most up-to-date intersection information.
+   * @return {Array} The currently queued entries.
+   */
+  IntersectionObserver.prototype.takeRecords = function () {
+    var records = this._queuedEntries.slice();
+    this._queuedEntries = [];
+    return records;
+  };
+
+  /**
+   * Accepts the threshold value from the user configuration object and
+   * returns a sorted array of unique threshold values. If a value is not
+   * between 0 and 1 and error is thrown.
+   * @private
+   * @param {Array|number=} opt_threshold An optional threshold value or
+   *     a list of threshold values, defaulting to [0].
+   * @return {Array} A sorted list of unique and valid threshold values.
+   */
+  IntersectionObserver.prototype._initThresholds = function (opt_threshold) {
+    var threshold = opt_threshold || [0];
+    if (!Array.isArray(threshold)) threshold = [threshold];
+
+    return threshold.sort().filter(function (t, i, a) {
+      if (typeof t != 'number' || isNaN(t) || t < 0 || t > 1) {
+        throw new Error('threshold must be a number between 0 and 1 inclusively');
+      }
+      return t !== a[i - 1];
+    });
+  };
+
+  /**
+   * Accepts the rootMargin value from the user configuration object
+   * and returns an array of the four margin values as an object containing
+   * the value and unit properties. If any of the values are not properly
+   * formatted or use a unit other than px or %, and error is thrown.
+   * @private
+   * @param {string=} opt_rootMargin An optional rootMargin value,
+   *     defaulting to '0px'.
+   * @return {Array<Object>} An array of margin objects with the keys
+   *     value and unit.
+   */
+  IntersectionObserver.prototype._parseRootMargin = function (opt_rootMargin) {
+    var marginString = opt_rootMargin || '0px';
+    var margins = marginString.split(/\s+/).map(function (margin) {
+      var parts = /^(-?\d*\.?\d+)(px|%)$/.exec(margin);
+      if (!parts) {
+        throw new Error('rootMargin must be specified in pixels or percent');
+      }
+      return { value: parseFloat(parts[1]), unit: parts[2] };
+    });
+
+    // Handles shorthand.
+    margins[1] = margins[1] || margins[0];
+    margins[2] = margins[2] || margins[0];
+    margins[3] = margins[3] || margins[1];
+
+    return margins;
+  };
+
+  /**
+   * Starts polling for intersection changes if the polling is not already
+   * happening, and if the page's visibility state is visible.
+   * @private
+   */
+  IntersectionObserver.prototype._monitorIntersections = function () {
+    if (!this._monitoringIntersections) {
+      this._monitoringIntersections = true;
+
+      // If a poll interval is set, use polling instead of listening to
+      // resize and scroll events or DOM mutations.
+      if (this.POLL_INTERVAL) {
+        this._monitoringInterval = setInterval(this._checkForIntersections, this.POLL_INTERVAL);
+      } else {
+        addEvent(window, 'resize', this._checkForIntersections, true);
+        addEvent(document, 'scroll', this._checkForIntersections, true);
+
+        if (this.USE_MUTATION_OBSERVER && 'MutationObserver' in window) {
+          this._domObserver = new MutationObserver(this._checkForIntersections);
+          this._domObserver.observe(document, {
+            attributes: true,
+            childList: true,
+            characterData: true,
+            subtree: true
+          });
+        }
+      }
+    }
+  };
+
+  /**
+   * Stops polling for intersection changes.
+   * @private
+   */
+  IntersectionObserver.prototype._unmonitorIntersections = function () {
+    if (this._monitoringIntersections) {
+      this._monitoringIntersections = false;
+
+      clearInterval(this._monitoringInterval);
+      this._monitoringInterval = null;
+
+      removeEvent(window, 'resize', this._checkForIntersections, true);
+      removeEvent(document, 'scroll', this._checkForIntersections, true);
+
+      if (this._domObserver) {
+        this._domObserver.disconnect();
+        this._domObserver = null;
+      }
+    }
+  };
+
+  /**
+   * Scans each observation target for intersection changes and adds them
+   * to the internal entries queue. If new entries are found, it
+   * schedules the callback to be invoked.
+   * @private
+   */
+  IntersectionObserver.prototype._checkForIntersections = function () {
+    var rootIsInDom = this._rootIsInDom();
+    var rootRect = rootIsInDom ? this._getRootRect() : getEmptyRect();
+
+    this._observationTargets.forEach(function (item) {
+      var target = item.element;
+      var targetRect = getBoundingClientRect(target);
+      var rootContainsTarget = this._rootContainsTarget(target);
+      var oldEntry = item.entry;
+      var intersectionRect = rootIsInDom && rootContainsTarget && this._computeTargetAndRootIntersection(target, rootRect);
+
+      var newEntry = item.entry = new IntersectionObserverEntry({
+        time: now(),
+        target: target,
+        boundingClientRect: targetRect,
+        rootBounds: rootRect,
+        intersectionRect: intersectionRect
+      });
+
+      if (!oldEntry) {
+        this._queuedEntries.push(newEntry);
+      } else if (rootIsInDom && rootContainsTarget) {
+        // If the new entry intersection ratio has crossed any of the
+        // thresholds, add a new entry.
+        if (this._hasCrossedThreshold(oldEntry, newEntry)) {
+          this._queuedEntries.push(newEntry);
+        }
+      } else {
+        // If the root is not in the DOM or target is not contained within
+        // root but the previous entry for this target had an intersection,
+        // add a new record indicating removal.
+        if (oldEntry && oldEntry.isIntersecting) {
+          this._queuedEntries.push(newEntry);
+        }
+      }
+    }, this);
+
+    if (this._queuedEntries.length) {
+      this._callback(this.takeRecords(), this);
+    }
+  };
+
+  /**
+   * Accepts a target and root rect computes the intersection between then
+   * following the algorithm in the spec.
+   * TODO(philipwalton): at this time clip-path is not considered.
+   * https://w3c.github.io/IntersectionObserver/#calculate-intersection-rect-algo
+   * @param {Element} target The target DOM element
+   * @param {Object} rootRect The bounding rect of the root after being
+   *     expanded by the rootMargin value.
+   * @return {?Object} The final intersection rect object or undefined if no
+   *     intersection is found.
+   * @private
+   */
+  IntersectionObserver.prototype._computeTargetAndRootIntersection = function (target, rootRect) {
+
+    // If the element isn't displayed, an intersection can't happen.
+    if (window.getComputedStyle(target).display == 'none') return;
+
+    var targetRect = getBoundingClientRect(target);
+    var intersectionRect = targetRect;
+    var parent = getParentNode(target);
+    var atRoot = false;
+
+    while (!atRoot) {
+      var parentRect = null;
+      var parentComputedStyle = parent.nodeType == 1 ? window.getComputedStyle(parent) : {};
+
+      // If the parent isn't displayed, an intersection can't happen.
+      if (parentComputedStyle.display == 'none') return;
+
+      if (parent == this.root || parent == document) {
+        atRoot = true;
+        parentRect = rootRect;
+      } else {
+        // If the element has a non-visible overflow, and it's not the <body>
+        // or <html> element, update the intersection rect.
+        // Note: <body> and <html> cannot be clipped to a rect that's not also
+        // the document rect, so no need to compute a new intersection.
+        if (parent != document.body && parent != document.documentElement && parentComputedStyle.overflow != 'visible') {
+          parentRect = getBoundingClientRect(parent);
+        }
+      }
+
+      // If either of the above conditionals set a new parentRect,
+      // calculate new intersection data.
+      if (parentRect) {
+        intersectionRect = computeRectIntersection(parentRect, intersectionRect);
+
+        if (!intersectionRect) break;
+      }
+      parent = getParentNode(parent);
+    }
+    return intersectionRect;
+  };
+
+  /**
+   * Returns the root rect after being expanded by the rootMargin value.
+   * @return {Object} The expanded root rect.
+   * @private
+   */
+  IntersectionObserver.prototype._getRootRect = function () {
+    var rootRect;
+    if (this.root) {
+      rootRect = getBoundingClientRect(this.root);
+    } else {
+      // Use <html>/<body> instead of window since scroll bars affect size.
+      var html = document.documentElement;
+      var body = document.body;
+      rootRect = {
+        top: 0,
+        left: 0,
+        right: html.clientWidth || body.clientWidth,
+        width: html.clientWidth || body.clientWidth,
+        bottom: html.clientHeight || body.clientHeight,
+        height: html.clientHeight || body.clientHeight
+      };
+    }
+    return this._expandRectByRootMargin(rootRect);
+  };
+
+  /**
+   * Accepts a rect and expands it by the rootMargin value.
+   * @param {Object} rect The rect object to expand.
+   * @return {Object} The expanded rect.
+   * @private
+   */
+  IntersectionObserver.prototype._expandRectByRootMargin = function (rect) {
+    var margins = this._rootMarginValues.map(function (margin, i) {
+      return margin.unit == 'px' ? margin.value : margin.value * (i % 2 ? rect.width : rect.height) / 100;
+    });
+    var newRect = {
+      top: rect.top - margins[0],
+      right: rect.right + margins[1],
+      bottom: rect.bottom + margins[2],
+      left: rect.left - margins[3]
+    };
+    newRect.width = newRect.right - newRect.left;
+    newRect.height = newRect.bottom - newRect.top;
+
+    return newRect;
+  };
+
+  /**
+   * Accepts an old and new entry and returns true if at least one of the
+   * threshold values has been crossed.
+   * @param {?IntersectionObserverEntry} oldEntry The previous entry for a
+   *    particular target element or null if no previous entry exists.
+   * @param {IntersectionObserverEntry} newEntry The current entry for a
+   *    particular target element.
+   * @return {boolean} Returns true if a any threshold has been crossed.
+   * @private
+   */
+  IntersectionObserver.prototype._hasCrossedThreshold = function (oldEntry, newEntry) {
+
+    // To make comparing easier, an entry that has a ratio of 0
+    // but does not actually intersect is given a value of -1
+    var oldRatio = oldEntry && oldEntry.isIntersecting ? oldEntry.intersectionRatio || 0 : -1;
+    var newRatio = newEntry.isIntersecting ? newEntry.intersectionRatio || 0 : -1;
+
+    // Ignore unchanged ratios
+    if (oldRatio === newRatio) return;
+
+    for (var i = 0; i < this.thresholds.length; i++) {
+      var threshold = this.thresholds[i];
+
+      // Return true if an entry matches a threshold or if the new ratio
+      // and the old ratio are on the opposite sides of a threshold.
+      if (threshold == oldRatio || threshold == newRatio || threshold < oldRatio !== threshold < newRatio) {
+        return true;
+      }
+    }
+  };
+
+  /**
+   * Returns whether or not the root element is an element and is in the DOM.
+   * @return {boolean} True if the root element is an element and is in the DOM.
+   * @private
+   */
+  IntersectionObserver.prototype._rootIsInDom = function () {
+    return !this.root || containsDeep(document, this.root);
+  };
+
+  /**
+   * Returns whether or not the target element is a child of root.
+   * @param {Element} target The target element to check.
+   * @return {boolean} True if the target element is a child of root.
+   * @private
+   */
+  IntersectionObserver.prototype._rootContainsTarget = function (target) {
+    return containsDeep(this.root || document, target);
+  };
+
+  /**
+   * Adds the instance to the global IntersectionObserver registry if it isn't
+   * already present.
+   * @private
+   */
+  IntersectionObserver.prototype._registerInstance = function () {
+    if (registry.indexOf(this) < 0) {
+      registry.push(this);
+    }
+  };
+
+  /**
+   * Removes the instance from the global IntersectionObserver registry.
+   * @private
+   */
+  IntersectionObserver.prototype._unregisterInstance = function () {
+    var index = registry.indexOf(this);
+    if (index != -1) registry.splice(index, 1);
+  };
+
+  /**
+   * Returns the result of the performance.now() method or null in browsers
+   * that don't support the API.
+   * @return {number} The elapsed time since the page was requested.
+   */
+  function now() {
+    return window.performance && performance.now && performance.now();
+  }
+
+  /**
+   * Throttles a function and delays its execution, so it's only called at most
+   * once within a given time period.
+   * @param {Function} fn The function to throttle.
+   * @param {number} timeout The amount of time that must pass before the
+   *     function can be called again.
+   * @return {Function} The throttled function.
+   */
+  function throttle(fn, timeout) {
+    var timer = null;
+    return function () {
+      if (!timer) {
+        timer = setTimeout(function () {
+          fn();
+          timer = null;
+        }, timeout);
+      }
+    };
+  }
+
+  /**
+   * Adds an event handler to a DOM node ensuring cross-browser compatibility.
+   * @param {Node} node The DOM node to add the event handler to.
+   * @param {string} event The event name.
+   * @param {Function} fn The event handler to add.
+   * @param {boolean} opt_useCapture Optionally adds the even to the capture
+   *     phase. Note: this only works in modern browsers.
+   */
+  function addEvent(node, event, fn, opt_useCapture) {
+    if (typeof node.addEventListener == 'function') {
+      node.addEventListener(event, fn, opt_useCapture || false);
+    } else if (typeof node.attachEvent == 'function') {
+      node.attachEvent('on' + event, fn);
+    }
+  }
+
+  /**
+   * Removes a previously added event handler from a DOM node.
+   * @param {Node} node The DOM node to remove the event handler from.
+   * @param {string} event The event name.
+   * @param {Function} fn The event handler to remove.
+   * @param {boolean} opt_useCapture If the event handler was added with this
+   *     flag set to true, it should be set to true here in order to remove it.
+   */
+  function removeEvent(node, event, fn, opt_useCapture) {
+    if (typeof node.removeEventListener == 'function') {
+      node.removeEventListener(event, fn, opt_useCapture || false);
+    } else if (typeof node.detatchEvent == 'function') {
+      node.detatchEvent('on' + event, fn);
+    }
+  }
+
+  /**
+   * Returns the intersection between two rect objects.
+   * @param {Object} rect1 The first rect.
+   * @param {Object} rect2 The second rect.
+   * @return {?Object} The intersection rect or undefined if no intersection
+   *     is found.
+   */
+  function computeRectIntersection(rect1, rect2) {
+    var top = Math.max(rect1.top, rect2.top);
+    var bottom = Math.min(rect1.bottom, rect2.bottom);
+    var left = Math.max(rect1.left, rect2.left);
+    var right = Math.min(rect1.right, rect2.right);
+    var width = right - left;
+    var height = bottom - top;
+
+    return width >= 0 && height >= 0 && {
+      top: top,
+      bottom: bottom,
+      left: left,
+      right: right,
+      width: width,
+      height: height
+    };
+  }
+
+  /**
+   * Shims the native getBoundingClientRect for compatibility with older IE.
+   * @param {Element} el The element whose bounding rect to get.
+   * @return {Object} The (possibly shimmed) rect of the element.
+   */
+  function getBoundingClientRect(el) {
+    var rect;
+
+    try {
+      rect = el.getBoundingClientRect();
+    } catch (err) {
+      // Ignore Windows 7 IE11 "Unspecified error"
+      // https://github.com/w3c/IntersectionObserver/pull/205
+    }
+
+    if (!rect) return getEmptyRect();
+
+    // Older IE
+    if (!(rect.width && rect.height)) {
+      rect = {
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom,
+        left: rect.left,
+        width: rect.right - rect.left,
+        height: rect.bottom - rect.top
+      };
+    }
+    return rect;
+  }
+
+  /**
+   * Returns an empty rect object. An empty rect is returned when an element
+   * is not in the DOM.
+   * @return {Object} The empty rect.
+   */
+  function getEmptyRect() {
+    return {
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: 0,
+      height: 0
+    };
+  }
+
+  /**
+   * Checks to see if a parent element contains a child element (including inside
+   * shadow DOM).
+   * @param {Node} parent The parent element.
+   * @param {Node} child The child element.
+   * @return {boolean} True if the parent node contains the child node.
+   */
+  function containsDeep(parent, child) {
+    var node = child;
+    while (node) {
+      if (node == parent) return true;
+
+      node = getParentNode(node);
+    }
+    return false;
+  }
+
+  /**
+   * Gets the parent node of an element or its host element if the parent node
+   * is a shadow root.
+   * @param {Node} node The node whose parent to get.
+   * @return {Node|null} The parent node or null if no parent exists.
+   */
+  function getParentNode(node) {
+    var parent = node.parentNode;
+
+    if (parent && parent.nodeType == 11 && parent.host) {
+      // If the parent is a shadow root, return the host element.
+      return parent.host;
+    }
+    return parent;
+  }
+
+  // Exposes the constructors globally.
+  window.IntersectionObserver = IntersectionObserver;
+  window.IntersectionObserverEntry = IntersectionObserverEntry;
+})(window, document);
 
 },{}],"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\is-arguments\\index.js":[function(require,module,exports){
 'use strict';
@@ -50142,7 +52703,7 @@ module.exports = function whichTypedArray(value) {
 },{"available-typed-arrays":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\available-typed-arrays\\index.js","call-bind/callBound":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\call-bind\\callBound.js","es-abstract/helpers/getOwnPropertyDescriptor":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\es-abstract\\helpers\\getOwnPropertyDescriptor.js","foreach":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\foreach\\index.js","has-symbols":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\has-symbols\\index.js","is-typed-array":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\is-typed-array\\index.js"}],"__IDYLL_AST__":[function(require,module,exports){
 "use strict";
 
-module.exports = { "id": 0, "type": "component", "name": "div", "children": [{ "id": 2, "type": "component", "name": "TextContainer", "children": [{ "id": 3, "type": "meta", "properties": { "title": { "type": "value", "value": "CSE412 Final Project" }, "description": { "type": "value", "value": "The prototype for the CSE412 Final Projects (Spring 2021)" } } }] }, { "id": 4, "type": "component", "name": "Header", "properties": { "title": { "type": "value", "value": "Women in Hollywood" }, "subtitle": { "type": "value", "value": "The influence women have on the movie industry." }, "author": { "type": "value", "value": "Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw, Xiaojing Xia" }, "authorLink": { "type": "value", "value": "\n  https://courses.cs.washington.edu/courses/cse412/21sp/index.html" }, "date": { "type": "value", "value": "May 20, 2021 (Last updaed)" }, "background": { "type": "value", "value": "#33333f" }, "color": { "type": "value", "value": "#ffffff" } }, "children": [] }, { "id": 5, "type": "component", "name": "TextContainer", "children": [{ "id": 6, "type": "component", "name": "h1", "children": [{ "id": 7, "type": "textnode", "value": "Introduction" }] }, { "id": 8, "type": "component", "name": "p", "children": [{ "id": 9, "type": "textnode", "value": "The motivation of this project is the underrepresentation of females within the American entertainment industry. Our goal is to find correlations between female presence in movies, TV shows, or on the crew and the gross profit, ratings, and overall success of the media. In order to accomplish our goal, we will create static and interactive visualizations that will translate dense amounts of information into a format that is easier to understand and consume. Visualizations are all in all, a better way of telling the story of females and their presence within the entertainment industry and we hope that people will become more aware of the disparities that may exist." }] }, { "id": 10, "type": "component", "name": "h2", "children": [{ "id": 11, "type": "textnode", "value": "Do movies that pass the Bechdel Test receive different audience" }, { "id": 12, "type": "textnode", "value": "/critic ratings compared to movies that do not pass the test?" }] }, { "id": 13, "type": "component", "name": "img", "properties": { "src": { "type": "value", "value": "./static/images/bechdeltest.png" }, "alt": { "type": "value", "value": "example" } }, "children": [] }, { "id": 14, "type": "component", "name": "p", "children": [{ "id": 15, "type": "textnode", "value": "The Bechdel Test is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man.\nUsing this measure, we hope to see whether Rotten Tomatoes audience and critic ratings are different for various movies that pass or fail this test." }] }, { "id": 16, "type": "component", "name": "p", "children": [{ "id": 17, "type": "textnode", "value": "From the main scatter plot we cannot tell much as the two categories seem to be distributed pretty evenly throught the graph. When we look at the\nvariable marginal density plot for x (critics ratings) we see that both movies that have passed the test and failed the test have similar density curves. Looks like critics ratings\nare not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of\naudience ratings around 0.6. This may be becuase the audience may have consisted of mainly women." }] }, { "id": 18, "type": "component", "name": "h2", "children": [{ "id": 19, "type": "textnode", "value": "Changes over time in movie directed by women" }] }, { "id": 20, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/movies_2_16223280340890/Dashboard3?:language=en-US&:display_count=n&:origin=viz_share_link" }, "width": { "type": "value", "value": "650" }, "height": { "type": "value", "value": "900" } }, "children": [] }, { "id": 21, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/shared/RP8YT72H8?:display_count=n&:origin=viz_share_link" }, "width": { "type": "value", "value": "160%" }, "height": { "type": "value", "value": "900" } }, "children": [] }, { "id": 22, "type": "component", "name": "h2", "children": [{ "id": 23, "type": "textnode", "value": "Do Female Directors Make More Movies Over Time?" }] }, { "id": 24, "type": "component", "name": "p", "children": [{ "id": 25, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/question2_16215645190700/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" }, "width": { "type": "value", "value": "100%" }, "height": { "type": "value", "value": "800" } }, "children": [] }, { "id": 26, "type": "textnode", "value": "\nWith the growth of the movie industry, more and more movies are produced every year. The amount of movies directed by females has increased a lot, but it’s still much less than the number of male directed movies. Is this situation getting improved?\nStarting from 1980s, women directors have made more and more contributions to the movie industry. tbc...." }] }, { "id": 27, "type": "component", "name": "h2", "children": [{ "id": 28, "type": "textnode", "value": "Do Movies Directed by Females Get Higher Ratings?" }] }, { "id": 29, "type": "component", "name": "h2", "children": [{ "id": 30, "type": "textnode", "value": "How Do the Ratings change over time?" }] }, { "id": 31, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/question2_16215645190700/Sheet4?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" }, "width": { "type": "value", "value": "100%" }, "height": { "type": "value", "value": "500" } }, "children": [] }, { "id": 32, "type": "component", "name": "p", "children": [{ "id": 33, "type": "textnode", "value": "Although the ratings for movies directed by both female and male directors dropped since the World War II, the overall vote of movies directed by females are getting higher than those directed by males over the years. This trend is supported by large amount of movies produced after 1980s." }] }, { "id": 34, "type": "component", "name": "h2", "children": [{ "id": 35, "type": "textnode", "value": "Are budget and box office earnings connected to presence of females in the cast?" }] }, { "id": 36, "type": "component", "name": "p", "children": [{ "id": 37, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/FP1_16216436914500/Dashboard2?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" }, "width": { "type": "value", "value": "153%" }, "height": { "type": "value", "value": "850" } }, "children": [] }, { "id": 38, "type": "textnode", "value": "\nThe above interactive plot includes data on the cast of the 50 top-grossing movies of 2016, compared to either production budget or domestic box office earnings on opening weekend. Movies can be highlighted on whether or not they pass some condition on casting and billing of female actors, in addition to the Bechdel test." }] }, { "id": 39, "type": "component", "name": "p", "children": [{ "id": 40, "type": "textnode", "value": "For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%. Judging by the titles of these movies, most of these high-earners with a smaller female cast were action/superhero and adventure movies. For films with an overall female cast of 45% or above, the production budget and box office openings appeared to be lower.\nMovies with a female actor in the first billing spot tended to have a higher percentage of overall female cast. Unsurprisingly, films that passed the Bechdel test also tended to have a higher percentage of women in the overall cast." }] }, { "id": 41, "type": "component", "name": "p", "children": [{ "id": 42, "type": "textnode", "value": "Data from FiveThirtyEight, Box Office Mojo, and The Numbers." }] }, { "id": 43, "type": "component", "name": "h2", "children": [{ "id": 44, "type": "textnode", "value": "How does the female to male ratio of the crew compare with the success of the movie?" }] }, { "id": 45, "type": "component", "name": "img", "properties": { "src": { "type": "value", "value": "./static/images/proportion.png" }, "alt": { "type": "value", "value": "example" } }, "children": [] }, { "id": 46, "type": "component", "name": "p", "children": [{ "id": 47, "type": "textnode", "value": "The above visualization is meant to be interactive. The y-axis shows the Rotten Tomatoes score given by critics and the x-axis shows the Female:Male ratio in the crew for movies that had the data avaialble. The interactivity would allow users to hover over the data points and view information such as the name of the moive, the IMDB score (which determines the size of the points) and the color variation determines\nthe box office opening numbers. Ideally, users would also be able to change the y-axis variable and see Rotten Tomatoes scores from the audience as well." }] }] }] };
+module.exports = { "id": 0, "type": "component", "name": "div", "children": [{ "id": 2, "type": "component", "name": "TextContainer", "children": [{ "id": 3, "type": "meta", "properties": { "title": { "type": "value", "value": "Woman to Hollywood" }, "description": { "type": "value", "value": "The prototype for the CSE412 Final Projects (Spring 2021)" } } }] }, { "id": 4, "type": "component", "name": "Header", "properties": { "title": { "type": "value", "value": "Women in Hollywood" }, "subtitle": { "type": "value", "value": "The influence women have on the movie industry." }, "author": { "type": "value", "value": "Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw, Xiaojing Xia" }, "authorLink": { "type": "value", "value": "\n  https://github.com/cse412-21sp/Women-to-Hollywood" }, "date": { "type": "value", "value": "May 29, 2021 (Last updaed)" }, "background": { "type": "value", "value": "#33333f" }, "color": { "type": "value", "value": "#ffffff" } }, "children": [] }, { "id": 5, "type": "component", "name": "TextContainer", "children": [{ "id": 6, "type": "component", "name": "h1", "children": [{ "id": 7, "type": "textnode", "value": "Introduction" }] }, { "id": 8, "type": "component", "name": "p", "children": [{ "id": 9, "type": "textnode", "value": "The motivation of this project is the underrepresentation of females within the American entertainment industry. Our goal is to find correlations between female presence in movies, TV shows, or on the crew and the gross profit, ratings, and overall success of the media. In order to accomplish our goal, we will create static and interactive visualizations that will translate dense amounts of information into a format that is easier to understand and consume. Visualizations are all in all, a better way of telling the story of females and their presence within the entertainment industry and we hope that people will become more aware of the disparities that may exist." }] }, { "id": 10, "type": "component", "name": "h2", "children": [{ "id": 11, "type": "textnode", "value": "Do movies that pass the Bechdel Test receive different audience" }, { "id": 12, "type": "textnode", "value": "/critic ratings compared to movies that do not pass the test?" }] }, { "id": 13, "type": "component", "name": "img", "properties": { "src": { "type": "value", "value": "./static/images/bechdeltest.png" }, "alt": { "type": "value", "value": "example" } }, "children": [] }, { "id": 14, "type": "component", "name": "p", "children": [{ "id": 15, "type": "textnode", "value": "The Bechdel Test is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man.\nUsing this measure, we hope to see whether Rotten Tomatoes audience and critic ratings are different for various movies that pass or fail this test." }] }, { "id": 16, "type": "component", "name": "p", "children": [{ "id": 17, "type": "textnode", "value": "From the main scatter plot we cannot tell much as the two categories seem to be distributed pretty evenly throught the graph. When we look at the\nvariable marginal density plot for x (critics ratings) we see that both movies that have passed the test and failed the test have similar density curves. Looks like critics ratings\nare not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of\naudience ratings around 0.6. This may be becuase the audience may have consisted of mainly women." }] }, { "id": 18, "type": "component", "name": "h2", "children": [{ "id": 19, "type": "textnode", "value": "Changes over time in movie directed by women" }] }] }, { "id": 20, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "fullWidth" } }, "children": [{ "id": 21, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "center" } }, "children": [{ "id": 22, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/movies_2_16223280340890/Dashboard3?:language=en-US&:display_count=n&:origin=viz_share_link" }, "width": { "type": "value", "value": "650" }, "height": { "type": "value", "value": "800" } }, "children": [] }] }] }, { "id": 23, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "fullWidth" } }, "children": [{ "id": 24, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "genre" } }, "children": [{ "id": 25, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/movies_16215442104760/Dashboard42?:language=en-US&:display_count=n&:origin=viz_share_link" }, "width": { "type": "value", "value": "1000" }, "height": { "type": "value", "value": "900" } }, "children": [] }] }] }, { "id": 26, "type": "component", "name": "TextContainer", "children": [{ "id": 27, "type": "component", "name": "h2", "children": [{ "id": 28, "type": "textnode", "value": "Do Female Directors Make More Movies Over Time?" }] }] }, { "id": 29, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "fullWidth" } }, "children": [{ "id": 30, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "overTime" } }, "children": [{ "id": 31, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/question2_16215645190700/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" }, "width": { "type": "value", "value": "1000" }, "height": { "type": "value", "value": "900" } }, "children": [] }] }] }, { "id": 32, "type": "component", "name": "TextContainer", "children": [{ "id": 33, "type": "component", "name": "p", "children": [{ "id": 34, "type": "textnode", "value": "With the growth of the movie industry, more and more movies are produced every year. The amount of movies directed by females has increased a lot, but it’s still much less than the number of male directed movies. Is this situation getting improved?\nStarting from 1980s, women directors have made more and more contributions to the movie industry. tbc...." }] }, { "id": 35, "type": "component", "name": "h2", "children": [{ "id": 36, "type": "textnode", "value": "Do Movies Directed by Females Get Higher Ratings?" }] }, { "id": 37, "type": "component", "name": "h2", "children": [{ "id": 38, "type": "textnode", "value": "How Do the Ratings change over time?" }] }, { "id": 39, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/question2_16215645190700/Sheet4?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" }, "width": { "type": "value", "value": "100%" }, "height": { "type": "value", "value": "500" } }, "children": [] }, { "id": 40, "type": "component", "name": "p", "children": [{ "id": 41, "type": "textnode", "value": "Although the ratings for movies directed by both female and male directors dropped since the World War II, the overall vote of movies directed by females are getting higher than those directed by males over the years. This trend is supported by large amount of movies produced after 1980s." }] }, { "id": 42, "type": "component", "name": "h2", "children": [{ "id": 43, "type": "textnode", "value": "Are budget and box office earnings connected to presence of females in the cast?" }] }] }, { "id": 44, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "fullWidth" } }, "children": [{ "id": 45, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "boxoffice" } }, "children": [{ "id": 46, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/FP1_16216436914500/Dashboard2?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" }, "width": { "type": "value", "value": "1000" }, "height": { "type": "value", "value": "850" } }, "children": [] }] }] }, { "id": 47, "type": "component", "name": "TextContainer", "children": [{ "id": 48, "type": "component", "name": "p", "children": [{ "id": 49, "type": "textnode", "value": "The above interactive plot includes data on the cast of the 50 top-grossing movies of 2016, compared to either production budget or domestic box office earnings on opening weekend. Movies can be highlighted on whether or not they pass some condition on casting and billing of female actors, in addition to the Bechdel test." }] }, { "id": 50, "type": "component", "name": "p", "children": [{ "id": 51, "type": "textnode", "value": "For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%. Judging by the titles of these movies, most of these high-earners with a smaller female cast were action/superhero and adventure movies. For films with an overall female cast of 45% or above, the production budget and box office openings appeared to be lower.\nMovies with a female actor in the first billing spot tended to have a higher percentage of overall female cast. Unsurprisingly, films that passed the Bechdel test also tended to have a higher percentage of women in the overall cast." }] }, { "id": 52, "type": "component", "name": "p", "children": [{ "id": 53, "type": "textnode", "value": "Data from FiveThirtyEight, Box Office Mojo, and The Numbers." }] }, { "id": 54, "type": "component", "name": "h2", "children": [{ "id": 55, "type": "textnode", "value": "How does the female to male ratio of the crew compare with the success of the movie?" }] }, { "id": 56, "type": "component", "name": "img", "properties": { "src": { "type": "value", "value": "./static/images/proportion.png" }, "alt": { "type": "value", "value": "example" } }, "children": [] }, { "id": 57, "type": "component", "name": "p", "children": [{ "id": 58, "type": "textnode", "value": "The above visualization is meant to be interactive. The y-axis shows the Rotten Tomatoes score given by critics and the x-axis shows the Female:Male ratio in the crew for movies that had the data avaialble. The interactivity would allow users to hover over the data points and view information such as the name of the moive, the IMDB score (which determines the size of the points) and the color variation determines\nthe box office opening numbers. Ideally, users would also be able to change the y-axis variable and see Rotten Tomatoes scores from the audience as well. " }] }] }, { "id": 59, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "fullWidth" } }, "children": [{ "id": 60, "type": "component", "name": "div", "properties": { "className": { "type": "value", "value": "text_cloud" } }, "children": [{ "id": 61, "type": "component", "name": "TableauEmbed", "properties": { "link": { "type": "value", "value": "https://public.tableau.com/views/director_text_cloud/Text3?:language=en-US&:display_count=n&:origin=viz_share_link" }, "width": { "type": "value", "value": "1000" }, "height": { "type": "value", "value": "600" } }, "children": [] }] }] }, { "id": 62, "type": "component", "name": "Scroller", "children": [{ "id": 63, "type": "component", "name": "Graphic", "children": [{ "id": 64, "type": "component", "name": "img", "properties": { "src": { "type": "value", "value": "./static/images/background_1.jpg" }, "alt": { "type": "value", "value": "example" } }, "children": [] }] }, { "id": 65, "type": "component", "name": "Step", "children": [{ "id": 66, "type": "component", "name": "h2", "children": [{ "id": 67, "type": "textnode", "value": "Data Sources" }] }, { "id": 68, "type": "component", "name": "h3", "children": [{ "id": 69, "type": "textnode", "value": "Bechdel Test Data:" }] }, { "id": 70, "type": "component", "name": "h3", "children": [{ "id": 71, "type": "textnode", "value": "Movies Data:" }] }, { "id": 72, "type": "component", "name": "p", "children": [{ "id": 73, "type": "textnode", "value": "IMDb movies extensive dataset\n    IMDb is the most popular movie website and it combines movie plot description, Metastore ratings, critic and user ratings and reviews, release dates, and many more aspects.\n    source: www.kaggle.com/stefanoleone992/imdb-extensive-dataset" }] }, { "id": 74, "type": "component", "name": "p", "children": [{ "id": 75, "type": "textnode", "value": "And we used python library gender-guesser 0.4.0 to help us dinguish the gender of a director\n    source: pypi.org/project/gender-guesser/\n  " }] }] }, { "id": 76, "type": "component", "name": "Step", "children": [{ "id": 77, "type": "component", "name": "h3", "children": [{ "id": 78, "type": "textnode", "value": "Special thanks to our professor: Jane Hoffswell, and all teaching assistants." }] }] }, { "id": 79, "type": "component", "name": "p", "children": [{ "id": 80, "type": "component", "name": "Step", "children": [{ "id": 81, "type": "component", "name": "h2", "children": [{ "id": 82, "type": "textnode", "value": "About Us" }] }, { "id": 83, "type": "component", "name": "p", "children": [{ "id": 84, "type": "textnode", "value": "Our names are Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw and Xiaojing Xia." }] }, { "id": 85, "type": "component", "name": "p", "children": [{ "id": 86, "type": "textnode", "value": "This project was created for the course CSE412: Data Visualization, at the Paul G. Allen School of Computer Science & Engineering within the University of Washington.\n  " }] }] }, { "id": 87, "type": "textnode", "value": "  " }] }] }] };
 
 },{}],"__IDYLL_COMPONENTS__":[function(require,module,exports){
 'use strict';
@@ -50152,10 +52713,14 @@ module.exports = {
 	'header': require('C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/header.js'),
 	'h1': require('C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/h1.js'),
 	'h2': require('C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/h2.js'),
-	'tableau-embed': require('C:/Users/frank/Documents/Women-to-Hollywood/components/tableau-embed.js')
+	'tableau-embed': require('C:/Users/frank/Documents/Women-to-Hollywood/components/tableau-embed.js'),
+	'graphic': require('C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/graphic.js'),
+	'h3': require('C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/h3.js'),
+	'step': require('C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/step.js'),
+	'scroller': require('C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/scroller.js')
 };
 
-},{"C:/Users/frank/Documents/Women-to-Hollywood/components/tableau-embed.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\components\\tableau-embed.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/h1.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\h1.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/h2.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\h2.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/header.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\header.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/text-container.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\text-container.js"}],"__IDYLL_CONTEXT__":[function(require,module,exports){
+},{"C:/Users/frank/Documents/Women-to-Hollywood/components/tableau-embed.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\components\\tableau-embed.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/graphic.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\graphic.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/h1.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\h1.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/h2.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\h2.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/h3.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\h3.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/header.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\header.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/scroller.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\scroller.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/step.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\step.js","C:/Users/frank/Documents/Women-to-Hollywood/node_modules/idyll-components/dist/cjs/text-container.js":"C:\\Users\\frank\\Documents\\Women-to-Hollywood\\node_modules\\idyll-components\\dist\\cjs\\text-container.js"}],"__IDYLL_CONTEXT__":[function(require,module,exports){
 'use strict';
 
 var vl = require('vega-lite-api');

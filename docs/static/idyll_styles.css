@@ -1275,6 +1275,28 @@ img {
 
 
 
+* {
+  font-family: 'Raleway', sans-serif;
+}
+.fullWidth .center {
+  margin-left: 28vw;
+}
+.fullWidth .text_cloud {
+  margin-left: 20vw;
+}
+.fullWidth .genre {
+  margin-left: 23vw;
+}
+
+.fullWidth .boxoffice {
+  margin-left: 23vw;
+}
+
+.fullWidth .overTime {
+  margin-left: 23vw;
+}
+
+
 .d3-component svg {
   background: #ddd;
   max-height: 300px;
@@ -1288,12 +1310,19 @@ img {
     max-height: 200px;
   }
 }
+
 .idyll-scroll .idyll-text-container {
   max-width: 50vw;
 }
 .idyll-scroll-text .idyll-step {
   max-width: 45vw;
+  border-style: none;
+  background-color: rgb(51, 51, 63, 0.5);
+  text-align: center;
+  color: #ffffff;
 }
+
+
 .d3-component-container {
   height: 20vw;
   width: 20vw;
@@ -1314,4 +1343,6 @@ img {
     width: 31vw;
     margin-left: 65vw;
   }
+
 }
+
