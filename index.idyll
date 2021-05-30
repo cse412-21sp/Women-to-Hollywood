@@ -21,7 +21,12 @@ The motivation of this project is the underrepresentation of females within the 
 
 ## Do movies that pass the Bechdel Test receive different audience/critic ratings compared to movies that do not pass the test?
 
-![example](./static/images/bechdeltest.png)
+[FullWidth]
+[div className:'center']
+[iframe src:"./static/html/plotly_graph.html" width:"800" height:"800"][/iframe]
+[/div]
+[/FullWidth]
+
 
 The Bechdel Test is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man.
 Using this measure, we hope to see whether Rotten Tomatoes audience and critic ratings are different for various movies that pass or fail this test.
