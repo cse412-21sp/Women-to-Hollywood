@@ -1,4 +1,4 @@
-[meta title:"CSE412 Final Project" description:"The prototype for the CSE412 Final Projects (Spring 2021)" /]
+[meta title:"Woman to Hollywood" description:"The prototype for the CSE412 Final Projects (Spring 2021)" /]
 
 [Header
   fullWidth:true
@@ -6,19 +6,27 @@
   subtitle:"The influence women have on the movie industry."
   author:"Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw, Xiaojing Xia"
   authorLink: "
-  https://courses.cs.washington.edu/courses/cse412/21sp/index.html"
-  date:"May 20, 2021 (Last updaed)"
+  https://github.com/cse412-21sp/Women-to-Hollywood"
+  date:"May 29, 2021 (Last updaed)"
   background:"#33333f"
   color:"#ffffff"
    /]
+
+
 
 # Introduction
 
 The motivation of this project is the underrepresentation of females within the American entertainment industry. Our goal is to find correlations between female presence in movies, TV shows, or on the crew and the gross profit, ratings, and overall success of the media. In order to accomplish our goal, we will create static and interactive visualizations that will translate dense amounts of information into a format that is easier to understand and consume. Visualizations are all in all, a better way of telling the story of females and their presence within the entertainment industry and we hope that people will become more aware of the disparities that may exist.
 
+
 ## Do movies that pass the Bechdel Test receive different audience/critic ratings compared to movies that do not pass the test?
 
-![example](./static/images/bechdeltest.png)
+[FullWidth]
+[div className:'center']
+[iframe src:"./static/html/plotly_graph.html" width:"800" height:"800"][/iframe]
+[/div]
+[/FullWidth]
+
 
 The Bechdel Test is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man.
 Using this measure, we hope to see whether Rotten Tomatoes audience and critic ratings are different for various movies that pass or fail this test.
@@ -28,24 +36,120 @@ variable marginal density plot for x (critics ratings) we see that both movies t
 are not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of
 audience ratings around 0.6. This may be becuase the audience may have consisted of mainly women.
 
+
+
+
 ## Changes over time in movie directed by women
 
-[TableauEmbed link:"https://public.tableau.com/views/movies_16215442104760/Dashboard3?:language=zh-Hant&:display_count=y&publish=yes&:origin=viz_share_link" width:"100%" height:"500"/]
+[FullWidth]
+[div className:'center']
+[TableauEmbed link:"https://public.tableau.com/views/movies_2_16223280340890/Dashboard3?:language=en-US&:display_count=n&:origin=viz_share_link" width:"650" height:"800"/]
+[/div]
+[/FullWidth]
+
+
+[FullWidth]
+[div className:'genre']
+[TableauEmbed link:"https://public.tableau.com/views/movies_16215442104760/Dashboard42?:language=en-US&:display_count=n&:origin=viz_share_link" width:"1000" height:"900"/]
+[/div]
+[/FullWidth]
+
 
 ## Do Female Directors Make More Movies Over Time?
 
-[TableauEmbed link:"https://public.tableau.com/views/question2_16215645190700/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"100%" height:"800"/]
+[FullWidth]
+[div className:'overTime']
+[TableauEmbed link:"https://public.tableau.com/views/question2_16215645190700/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"1000" height:"900"/]
+[/div]
+[/FullWidth]
+
+
 With the growth of the movie industry, more and more movies are produced every year. The amount of movies directed by females has increased a lot, but it's still much less than the number of male directed movies. Is this situation getting improved?
 Starting from 1980s, women directors have made more and more contributions to the movie industry. tbc....
+
 
 ## Do Movies Directed by Females Get Higher Ratings?
 ## How Do the Ratings change over time?
 
+[FullWidth]
+[div className:'overTime']
 [TableauEmbed link:"https://public.tableau.com/views/question2_16215645190700/Sheet4?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"100%" height:"500"/]
+[/div]
+[/FullWidth]
 
 Although the ratings for movies directed by both female and male directors dropped since the World War II, the overall vote of movies directed by females are getting higher than those directed by males over the years. This trend is supported by large amount of movies produced after 1980s.
 
+## Are budget and box office earnings connected to presence of females in the cast?
 
-[TableauEmbed link:"https://public.tableau.com/shared/2BT6QSXDR?:display_count=y&:origin=viz_share_link" width:"100%" height:"300"/]
-For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%.
-Movies with a female actor in the first billing spot tended to have a higher percentage of overall female cast.
+
+
+[FullWidth]
+[div className:'boxoffice']
+[TableauEmbed link:"https://public.tableau.com/views/FP1_16216436914500/Dashboard2?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"1000" height:"850"/]
+[/div]
+[/FullWidth]
+
+The above interactive plot includes data on the cast of the 50 top-grossing movies of 2016, compared to either production budget or domestic box office earnings on opening weekend. Movies can be highlighted on whether or not they pass some condition on casting and billing of female actors, in addition to the Bechdel test.
+
+For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%. Judging by the titles of these movies, most of these high-earners with a smaller female cast were action/superhero and adventure movies. For films with an overall female cast of 45% or above, the production budget and box office openings appeared to be lower.
+Movies with a female actor in the first billing spot tended to have a higher percentage of overall female cast. Unsurprisingly, films that passed the Bechdel test also tended to have a higher percentage of women in the overall cast.
+
+Data from FiveThirtyEight, Box Office Mojo, and The Numbers.
+
+## How does the female to male ratio of the crew compare with the success of the movie? 
+
+![example](./static/images/proportion.png)
+
+The above visualization is meant to be interactive. The y-axis shows the Rotten Tomatoes score given by critics and the x-axis shows the Female:Male ratio in the crew for movies that had the data avaialble. The interactivity would allow users to hover over the data points and view information such as the name of the moive, the IMDB score (which determines the size of the points) and the color variation determines
+the box office opening numbers. Ideally, users would also be able to change the y-axis variable and see Rotten Tomatoes scores from the audience as well. 
+
+
+[FullWidth]
+[div className:'text_cloud']
+[TableauEmbed link:"https://public.tableau.com/views/director_text_cloud/Text3?:language=en-US&:display_count=n&:origin=viz_share_link" width:"1000" height:"600"/]
+[/div]
+[/FullWidth]
+
+
+
+
+
+
+
+
+
+
+[Scroller]
+
+  [Graphic]
+    ![example](./static/images/background_1.jpg)
+  [/Graphic]
+
+  [Step]
+    ##Data Sources
+    ###Bechdel Test Data:
+
+
+    ###Movies Data:
+
+    IMDb movies extensive dataset
+    IMDb is the most popular movie website and it combines movie plot description, Metastore ratings, critic and user ratings and reviews, release dates, and many more aspects.
+    source: www.kaggle.com/stefanoleone992/imdb-extensive-dataset
+
+    And we used python library gender-guesser 0.4.0 to help us dinguish the gender of a director
+    source: pypi.org/project/gender-guesser/
+  [/Step]
+
+  [Step]
+    
+    
+    ###Special thanks to our professor: Jane Hoffswell, and all teaching assistants.
+  [/Step]
+
+  [Step]
+    ##About Us
+      Our names are Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw and Xiaojing Xia.
+
+      This project was created for the course CSE412: Data Visualization, at the Paul G. Allen School of Computer Science & Engineering within the University of Washington.
+  [/Step]  
+[/Scroller]
