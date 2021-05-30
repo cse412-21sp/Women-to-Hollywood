@@ -1,11 +1,10 @@
 # CSE412 Final Project
-Women-to-Hollywood
+Women-to-Hollywood\
 Project is available at: [Link](https://cse412-21sp.github.io/Women-to-Hollywood/)
 
 ## Team Members
 Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw, Xiaojing Xia.
 
-Place your team member names here.
 
 ### Contribution Statements
 
@@ -18,7 +17,7 @@ The motivation of this project is the underrepresentation of females within the 
 
 #### Acknowledgements
 
-This project was adapted from the [final project template](https://github.com/cse412-21sp/Final-Project-Template).
-Data source:
-[IMDb movies extensive dataset](https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset)
+This project was adapted from the [final project template](https://github.com/cse412-21sp/Final-Project-Template).\
+Data source:\
+[IMDb movies extensive dataset](https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset)\
 [Next-bechdel test](https://github.com/fivethirtyeight/data/tree/master/next-bechdel)
