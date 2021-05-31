@@ -23,7 +23,7 @@ The motivation of this project is the underrepresentation of females within the 
 
 [FullWidth]
 [div className:'center']
-[iframe src:"./static/html/plotly_graph.html" width:"800" height:"800"][/iframe]
+[iframe className:'frame' src:"./static/html/plotly_graph.html" width:"800" height:"800"][/iframe]
 [/div]
 [/FullWidth]
 
@@ -47,6 +47,9 @@ audience ratings around 0.6. This may be becuase the audience may have consisted
 [/div]
 [/FullWidth]
 
+## Women can't direct Action?
+## Gender Stereotypes on Directing and Movie Genre
+Gender stereotypes exist everywhere, with no exception in the field of directing. For example, many people believe that women have better verbal abilities than men, whereas men are assumed to have better senses of action, adventure, and suspenseful movies. This stereotype may lower the chances of a female director getting a job in some programs. Guess which genre has the highest and lowest percentage of female directors? Interact with the visualization by selecting different genres and sees the answer.
 
 [FullWidth]
 [div className:'genre']
@@ -54,6 +57,8 @@ audience ratings around 0.6. This may be becuase the audience may have consisted
 [/div]
 [/FullWidth]
 
+
+The result has no surprise. Drama, Comedy, and Family movies are the top3 genres directed by a female. While action, adventure, and horror movies have a relatively low number. Some specific genres, for example, sports and western movies, though the number of data not as much as others, we can hardly see any these movies directed by females.
 
 ## Do Female Directors Make More Movies Over Time?
 
@@ -103,6 +108,7 @@ Data from FiveThirtyEight, Box Office Mojo, and The Numbers.
 The above visualization is meant to be interactive. The y-axis shows the Rotten Tomatoes score given by critics and the x-axis shows the Female:Male ratio in the crew for movies that had the data avaialble. The interactivity would allow users to hover over the data points and view information such as the name of the moive, the IMDB score (which determines the size of the points) and the color variation determines
 the box office opening numbers. Ideally, users would also be able to change the y-axis variable and see Rotten Tomatoes scores from the audience as well. 
 
+Despite all the disadvantages and obstacles female directors face in the industry, many still gain huge success. Let's admire all these great names and movies directed by female. See if you could find your favorite!
 
 [FullWidth]
 [div className:'text_cloud']
