@@ -8,119 +8,249 @@
   authorLink: "
   https://github.com/cse412-21sp/Women-to-Hollywood"
   date:"May 29, 2021 (Last updaed)"
-  background:"#33333f"
-  color:"#ffffff"
-   /]
+  background:"url(./static/images/banner.jpg)"
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 
+  color:"#323730"
+  margin-bottom: 0
+     /]
 
+[FullWidth]
+[div style:`{backgroundColor: '#C1BFCC'}`]
+[div className: 'text']
+[div className: 'idyll-text-container' style:`{backgroundColor: '#C1BFCC'}`]
+
+[br /]
 
 # Introduction
 
 The motivation of this project is the underrepresentation of females within the American entertainment industry. Our goal is to find correlations between female presence in movies, TV shows, or on the crew and the gross profit, ratings, and overall success of the media. In order to accomplish our goal, we will create static and interactive visualizations that will translate dense amounts of information into a format that is easier to understand and consume. Visualizations are all in all, a better way of telling the story of females and their presence within the entertainment industry and we hope that people will become more aware of the disparities that may exist.
 
-
-## Do movies that pass the Bechdel Test receive different audience/critic ratings compared to movies that do not pass the test?
-
-[FullWidth]
-[div className:'center']
-[iframe className:'frame' src:"./static/html/plotly_graph.html" width:"800" height:"800"][/iframe]
+[br /]
+[/div]
+[/div]
 [/div]
 [/FullWidth]
 
 
+[FullWidth]
+[div style:`{backgroundColor: '#B1C2D0'}`]
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+# Do Female Directors Make More Movies Over Time?
+[/div]
+[/div]
+
+[div style:`{width: '100%', paddingLeft: "15vw", paddingRight:"15vw"}`]
+[TableauEmbed link:"https://public.tableau.com/views/question2_16215645190700/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"1000" height:"900"/]
+[/div]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+With the growth of the movie industry, more and more movies are produced every year. The amount of movies directed by females has increased a lot, but it's still much less than the number of male directed movies. Is this situation getting improved?
+Starting from 1980s, women directors have made more and more contributions to the movie industry. tbc....
+[/div]
+[/div]
+
+[br /]
+[br /]
+
+[/div]
+[/FullWidth]
+
+[FullWidth]
+[div style:`{backgroundColor: '#AACAD2'}`]
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+# Women can't direct Action? Gender Stereotypes on Directing and Movie Genre
+Gender stereotypes exist everywhere, with no exception in the field of directing. For example, many people believe that women have better verbal abilities than men, whereas men are assumed to have better senses of action, adventure, and suspenseful movies. This stereotype may lower the chances of a female director getting a job in some programs. Guess which genre has the highest and lowest percentage of female directors? Interact with the visualization by selecting different genres and sees the answer.
+[/div]
+[/div]
+
+[div style:`{width: '100%', paddingLeft: "15vw", paddingRight:"15vw"}`]
+[TableauEmbed link:"https://public.tableau.com/views/movies_2_16223280340890/Dashboard42?:language=en-US&:display_count=n&:origin=viz_share_link" width:"1000" height:"900"/]
+
+[/div]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+The result has no surprise. Drama, Comedy, and Family movies are the top3 genres directed by a female. While action, adventure, and horror movies have a relatively low number. Some specific genres, for example, sports and western movies, though the number of data not as much as others, we can hardly see any these movies directed by females.
+[/div]
+[/div]
+
+[br /]
+[br /]
+
+[/div]
+[/FullWidth]
+
+
+
+
+
+
+
+
+
+[FullWidth]
+[div style:`{backgroundColor: '#B2CFD6'}`]
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+# Do Movies Directed by Females Get Higher Ratings?
+# How Do the Ratings change over time?
+[/div]
+[/div]
+
+[div style:`{width: '100%', paddingLeft: "15vw", paddingRight:"15vw"}`]
+[TableauEmbed link:"https://public.tableau.com/views/question2_16215645190700/Sheet4?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"100%" height:"500"/]
+[/div]
+
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+Although the ratings for movies directed by both female and male directors dropped since the World War II, the overall vote of movies directed by females are getting higher than those directed by males over the years. This trend is supported by large amount of movies produced after 1980s.
+[/div]
+[/div]
+
+[br /]
+[br /]
+
+[/div]
+[/FullWidth]
+
+[FullWidth]
+[div style:`{backgroundColor: '#AACAD2'}`]
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+# Do movies that pass the Bechdel Test receive different audience/critic ratings compared to movies that do not pass the test?
 The Bechdel Test is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man.
 Using this measure, we hope to see whether Rotten Tomatoes audience and critic ratings are different for various movies that pass or fail this test.
+[/div]
+[/div]
+
+[div style:`{width: '100%', paddingLeft: "20vw", paddingRight:"20vw"}`]
+[iframe className:'frame' src:"./static/html/plotly_graph.html" width:"800" height:"800"][/iframe]
+[/div]
+
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
 
 From the main scatter plot we cannot tell much as the two categories seem to be distributed pretty evenly throught the graph. When we look at the
 variable marginal density plot for x (critics ratings) we see that both movies that have passed the test and failed the test have similar density curves. Looks like critics ratings
 are not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of
 audience ratings around 0.6. This may be becuase the audience may have consisted of mainly women.
-
-
-
-
-## Changes over time in movie directed by women
-
-[FullWidth]
-[div className:'center']
-[TableauEmbed link:"https://public.tableau.com/views/movies_2_16223280340890/Dashboard3?:language=en-US&:display_count=n&:origin=viz_share_link" width:"650" height:"800"/]
 [/div]
-[/FullWidth]
+[/div]
 
-## Women can't direct Action?
-## Gender Stereotypes on Directing and Movie Genre
-Gender stereotypes exist everywhere, with no exception in the field of directing. For example, many people believe that women have better verbal abilities than men, whereas men are assumed to have better senses of action, adventure, and suspenseful movies. This stereotype may lower the chances of a female director getting a job in some programs. Guess which genre has the highest and lowest percentage of female directors? Interact with the visualization by selecting different genres and sees the answer.
+[br /]
+[br /]
 
-[FullWidth]
-[div className:'genre']
-[TableauEmbed link:"https://public.tableau.com/views/movies_16215442104760/Dashboard42?:language=en-US&:display_count=n&:origin=viz_share_link" width:"1000" height:"900"/]
 [/div]
 [/FullWidth]
 
 
-The result has no surprise. Drama, Comedy, and Family movies are the top3 genres directed by a female. While action, adventure, and horror movies have a relatively low number. Some specific genres, for example, sports and western movies, though the number of data not as much as others, we can hardly see any these movies directed by females.
 
-## Do Female Directors Make More Movies Over Time?
 
 [FullWidth]
-[div className:'overTime']
-[TableauEmbed link:"https://public.tableau.com/views/question2_16215645190700/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"1000" height:"900"/]
-[/div]
-[/FullWidth]
+[div style:`{backgroundColor: '#B1C2D0'}`]
+[br /]
 
-
-With the growth of the movie industry, more and more movies are produced every year. The amount of movies directed by females has increased a lot, but it's still much less than the number of male directed movies. Is this situation getting improved?
-Starting from 1980s, women directors have made more and more contributions to the movie industry. tbc....
-
-
-## Do Movies Directed by Females Get Higher Ratings?
-## How Do the Ratings change over time?
-
-[FullWidth]
-[div className:'overTime']
-[TableauEmbed link:"https://public.tableau.com/views/question2_16215645190700/Sheet4?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"100%" height:"500"/]
-[/div]
-[/FullWidth]
-
-Although the ratings for movies directed by both female and male directors dropped since the World War II, the overall vote of movies directed by females are getting higher than those directed by males over the years. This trend is supported by large amount of movies produced after 1980s.
-
+[div className: 'text']
+[div className: 'idyll-text-container']
 ## Are budget and box office earnings connected to presence of females in the cast?
+[/div]
+[/div]
 
-
-
-[FullWidth]
-[div className:'boxoffice']
+[div style:`{width: '100%', paddingLeft: "15vw", paddingRight:"15vw"}`]
 [TableauEmbed link:"https://public.tableau.com/views/FP1_16216436914500/Dashboard2?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"1000" height:"850"/]
 [/div]
-[/FullWidth]
 
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
 The above interactive plot includes data on the cast of the 50 top-grossing movies of 2016, compared to either production budget or domestic box office earnings on opening weekend. Movies can be highlighted on whether or not they pass some condition on casting and billing of female actors, in addition to the Bechdel test.
 
 For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%. Judging by the titles of these movies, most of these high-earners with a smaller female cast were action/superhero and adventure movies. For films with an overall female cast of 45% or above, the production budget and box office openings appeared to be lower.
 Movies with a female actor in the first billing spot tended to have a higher percentage of overall female cast. Unsurprisingly, films that passed the Bechdel test also tended to have a higher percentage of women in the overall cast.
+[/div]
+[/div]
 
-Data from FiveThirtyEight, Box Office Mojo, and The Numbers.
+[br /]
+[br /]
 
-## How does the female to male ratio of the crew compare with the success of the movie? 
+[/div]
+[/FullWidth]
 
-![example](./static/images/proportion.png)
 
-The above visualization is meant to be interactive. The y-axis shows the Rotten Tomatoes score given by critics and the x-axis shows the Female:Male ratio in the crew for movies that had the data avaialble. The interactivity would allow users to hover over the data points and view information such as the name of the moive, the IMDB score (which determines the size of the points) and the color variation determines
-the box office opening numbers. Ideally, users would also be able to change the y-axis variable and see Rotten Tomatoes scores from the audience as well. 
-
-Despite all the disadvantages and obstacles female directors face in the industry, many still gain huge success. Let's admire all these great names and movies directed by female. See if you could find your favorite!
 
 [FullWidth]
-[div className:'text_cloud']
-[TableauEmbed link:"https://public.tableau.com/views/director_text_cloud/Text3?:language=en-US&:display_count=n&:origin=viz_share_link" width:"1000" height:"600"/]
+[div style:`{backgroundColor: '#C1BFCC'}`]
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+## How does the female to male ratio of the crew compare with the success of the movie? 
+[/div]
+[/div]
+
+[div style:`{width: '100%', paddingLeft: "10vw", paddingRight:"7vw"}`]
+![example](./static/images/proportion.png)
+[/div]
+
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+The above visualization is meant to be interactive. The y-axis shows the Rotten Tomatoes score given by critics and the x-axis shows the Female:Male ratio in the crew for movies that had the data avaialble. The interactivity would allow users to hover over the data points and view information such as the name of the moive, the IMDB score (which determines the size of the points) and the color variation determines
+the box office opening numbers. Ideally, users would also be able to change the y-axis variable and see Rotten Tomatoes scores from the audience as well. 
+[/div]
+
+
+[/div]
+
+[br /]
+[br /]
+
 [/div]
 [/FullWidth]
 
 
 
 
+[FullWidth]
+[div style:`{backgroundColor: '#AFAEB9'}`]
+[br /]
 
+[div className: 'text']
+[div className: 'idyll-text-container']
+# Female directors with top box office
+Despite all the disadvantages and obstacles female directors face in the industry, many still gain huge success. Let's admire all these great names and movies directed by female. See if you could find your favorite!
+[/div]
+[/div]
 
+[div style:`{width: '100%', paddingLeft: "15vw", paddingRight:"15vw"}`]
+[TableauEmbed link:"https://public.tableau.com/views/director_text_cloud/Text3?:language=en-US&:display_count=n&:origin=viz_share_link" width:"1000" height:"600"/]
+[/div]
+
+[br /]
+[br /]
+
+[/div]
+[/FullWidth]
 
 
 
@@ -134,6 +264,7 @@ Despite all the disadvantages and obstacles female directors face in the industr
   [Step]
     ##Data Sources
     ###Bechdel Test Data:
+    Data from FiveThirtyEight, Box Office Mojo, and The Numbers.
 
 
     ###Movies Data:

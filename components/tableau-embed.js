@@ -10,6 +10,7 @@ class TableauEmbed extends React.Component {
         style={{border:"none"}}
         width={this.props.width} 
         height={this.props.height}
+
       />
     );
   }
