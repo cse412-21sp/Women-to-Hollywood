@@ -13,6 +13,9 @@ all_tests <- read.csv("nextBechdel_allTests.csv", stringsAsFactors = FALSE)
 proportions <- read.csv("proportion_data.csv", stringsAsFactors = FALSE)
 
 test <- right_join(proportions,all_tests , by = "movie")
+write.csv(test, "final_data.csv", row.names = FALSE)
+
+
 
 static_plot <-  ggplot(data = test, 
                 mapping = aes(label = movie, x = Female.Male.Ratio, 

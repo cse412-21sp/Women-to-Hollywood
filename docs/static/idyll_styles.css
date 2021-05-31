@@ -1278,23 +1278,33 @@ img {
 * {
   font-family: 'Raleway', sans-serif;
 }
-.fullWidth .center {
-  margin-left: 28vw;
-}
-.fullWidth .text_cloud {
-  margin-left: 20vw;
-}
-.fullWidth .genre {
-  margin-left: 23vw;
+
+.article-header {
+  margin-bottom: 0;
 }
 
-.fullWidth .boxoffice {
-  margin-left: 23vw;
+.text .idyll-text-container {
+  max-width: 80vw;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.fullWidth .overTime {
-  margin-left: 23vw;
+h4 {
+  margin-top: 0;
 }
+
+.fullWidth {
+  margin: 0;
+}
+
+div {
+  margin: 0;
+}
+
+
+
 
 .frame {
   border: none;
@@ -1315,6 +1325,7 @@ img {
 }
 
 .idyll-scroll .idyll-text-container {
+
   max-width: 50vw;
 }
 .idyll-scroll-text .idyll-step {
@@ -1336,6 +1347,7 @@ img {
 }
 @media only screen and (max-width: 600px) {
   .idyll-scroll .idyll-text-container {
+    align-items: center;
     max-width: 57vw;
   }
   .idyll-scroll-text .idyll-step {
