@@ -1296,6 +1296,9 @@ img {
   margin-left: 23vw;
 }
 
+.frame {
+  border: none;
+}
 
 .d3-component svg {
   background: #ddd;
