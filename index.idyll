@@ -144,8 +144,7 @@ The rating data for women-directed-movies before 1970s are sparse because of the
 [div className: 'text']
 [div className: 'idyll-text-container']
 ## Do movies that pass the Bechdel Test receive different audience/critic ratings compared to movies that do not pass the test?
-The Bechdel Test is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man.
-Using this measure, we hope to see whether Rotten Tomatoes audience and critic ratings are different for various movies that pass or fail this test.
+The Bechdel Test is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. Using this measure, we hope to find a discrepancy between the ratings received by the movies that pass the test compared to those movies that do not pass the test.
 [/div]
 [/div]
 
@@ -158,10 +157,9 @@ Using this measure, we hope to see whether Rotten Tomatoes audience and critic r
 [div className: 'text']
 [div className: 'idyll-text-container']
 
-From the main scatter plot we cannot tell much as the two categories seem to be distributed pretty evenly throught the graph. When we look at the
-variable marginal density plot for x (critics ratings) we see that both movies that have passed the test and failed the test have similar density curves. Looks like critics ratings
-are not influcend by the presense of women in movies. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of
-audience ratings around 0.6. This may be becuase the audience may have consisted of mainly women.
+From the main scatter plot we cannot tell much as the two groups seem to be distributed pretty evenly throughout the graph. By selecting which group we would like to analyze (movies that passed or movies that failed the test) in the interactive visualization and looking at the marginal density histograms, we can find discrepancies. For example, when we look at the variable marginal density plot for x (critics ratings), we see that movies that failed the Bechdel test receive high critics ratings. When we look at the density plot for y (audience ratings) we can see that movies that passed the Bechdel Test tended to get a lot of audience ratings around 0.6, while movies that do not pass the test, get more ratings around 0.8.
+
+It appears that, out of the movies that failed the Bechdel Test, a higher percentage of them received high critic and audience ratings, compared to the percentage of movies that passed the Bechdel test. It is worthy to take note, that only 18 movies out of 50, did in fact pass the test. Both groups have movies all over the scatterplot without any clustering occurring. I would conclude that there is not enough statistical evidence to show that the Bechdel test has any signifiant association to movie ratings.
 [/div]
 [/div]
 
