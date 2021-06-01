@@ -7,7 +7,7 @@
   author:"Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw, Xiaojing Xia"
   authorLink: "
   https://github.com/cse412-21sp/Women-to-Hollywood"
-  date:"May 31, 2021 (Last updaed)"
+  date:"May 31, 2021 (Last updated)"
   background:"url(./static/images/banner.jpg)"
   background-attachment: fixed;
   background-position: center;
@@ -26,7 +26,7 @@
 
 # Introduction
 
-The motivation of this project is the underrepresentation of females within the American entertainment industry. Our goal is to find correlations between female presence in movies, TV shows, or on the crew and the gross profit, ratings, and overall success of the media. In order to accomplish our goal, we will create static and interactive visualizations that will translate dense amounts of information into a format that is easier to understand and consume. Visualizations are all in all, a better way of telling the story of females and their presence within the entertainment industry and we hope that people will become more aware of the disparities that may exist.
+The motivation of this project is the underrepresentation of females within the American entertainment industry. Our goal is to find correlations between female presence in the cast or crew of movies, crew and the gross profit, ratings, and overall success of the media. In order to accomplish our goal, we've designed visualizations that translate the insights we found by analyzing various data sets into a format that is easier to understand and consume. Visualizations are, all in all, a better way of telling the story of womens' presence within the film industry, and we hope that people will become more aware of the disparities that may exist.
 
 [br /]
 [/div]
@@ -44,9 +44,9 @@ The motivation of this project is the underrepresentation of females within the 
 # Numbers in History
 ## Do Female Directors Make More Movies Over Time?
 The earliest movie available in IMDb is "Miss Jerry" was directed by Alexander Black in 1894. This is a black-and-white silent pre-film "Picture Play", accompanied by narration and music, making it the first example of a feature-length dramatic fiction on screen.  However, it is arguably considered "La Fée aux Choux" directed by French female director Alice Guy-Blaché is the world's first  narrative movie, and the first movie directed by a woman. Unfortunately this movie is not collected in IMDb database and the first movie directed by women was twenty years later in 1915, according to IMDb.
- 
+
 The development of movies industry was slow until it came to the sound era. The number of movies increased a lot after 1920s. However, there was not much growth of the movies directed by female. For a longtime from 1920s to 1960s, there were only  under 10 movies published every year directed by women.
- 
+
 Starting from 1970s, with the growth of the entire movie industry, more and more movies are produced every year. The amount of movies directed by females has increased a lot since then, but it’s still much less than the number of male directed movies. Is this situation getting improved?
 
 [/div]
@@ -184,18 +184,18 @@ audience ratings around 0.6. This may be becuase the audience may have consisted
 [/div]
 [/div]
 
+[div className: 'text']
+[div className: 'idyll-text-container']
+The interactive plot below includes data on the cast of the 50 top-grossing movies of 2016, compared to either production budget or domestic box office earnings on opening weekend. Movies can be highlighted on whether or not they pass some condition on casting and billing of female actors, in addition to the Bechdel test.
+
 [div style:`{width: '100%', paddingLeft: "15vw", paddingRight:"15vw"}`]
 [TableauEmbed link:"https://public.tableau.com/views/FP1_16216436914500/Dashboard2?:language=en&:display_count=y&publish=yes&:origin=viz_share_link" width:"1000" height:"850"/]
 [/div]
 
 [br /]
 
-[div className: 'text']
-[div className: 'idyll-text-container']
-The above interactive plot includes data on the cast of the 50 top-grossing movies of 2016, compared to either production budget or domestic box office earnings on opening weekend. Movies can be highlighted on whether or not they pass some condition on casting and billing of female actors, in addition to the Bechdel test.
-
 For movies that had the highest box office earnings on opening weekend (over $100M), the percentage of overall cast that was female was less than 35%. Judging by the titles of these movies, most of these high-earners with a smaller female cast were action/superhero and adventure movies. For films with an overall female cast of 45% or above, the production budget and box office openings appeared to be lower.
-Movies with a female actor in the first billing spot tended to have a higher percentage of overall female cast. Unsurprisingly, films that passed the Bechdel test also tended to have a higher percentage of women in the overall cast.
+Movies with a female actor in the first billing spot tended to have a higher percentage of overall female cast. Films that passed the Bechdel test also tended to have a higher percentage of women in the overall cast.
 [/div]
 [/div]
 
@@ -213,8 +213,8 @@ Movies with a female actor in the first billing spot tended to have a higher per
 
 [div className: 'text']
 [div className: 'idyll-text-container']
-## How does the female to male ratio of the crew compare with the success of the movie? 
-The visualization below investigates the ratings of movies versus the ratio of female:male cast and crew members in movies. Users are able to toggle and compare the Rotten Tomatoes scores from critics, audiences, and also IMDB scores of movies.
+## How does the female to male ratio of the crew compare with the success of the movie?
+The visualization below investigates the ratings of movies versus the ratio of female to male cast and crew members in movies. Users are able to toggle and compare the Rotten Tomatoes scores from critics, audiences, and also IMDB scores of movies.
 [/div]
 
 [/div]
@@ -251,7 +251,7 @@ lack of a correlation may then serve to support the idea that having more female
 [div className: 'text']
 [div className: 'idyll-text-container']
 # Female directors with top box office
-Despite all the disadvantages and obstacles female directors face in the industry, many still gain huge success. Let's admire all these great names and movies directed by female. See if you could find your favorite!
+Despite all the disadvantages and obstacles women face in the movie industry, many still gain huge success. Let's admire all these great names and movies directed by women. See if you can find your favorite!
 [/div]
 [/div]
 
@@ -291,8 +291,8 @@ Despite all the disadvantages and obstacles female directors face in the industr
   [/Step]
 
   [Step]
-    
-    
+
+
     ###Special thanks to our professor: Jane Hoffswell, and all teaching assistants.
   [/Step]
 
@@ -301,5 +301,5 @@ Despite all the disadvantages and obstacles female directors face in the industr
       Our names are Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw and Xiaojing Xia.
 
       This project was created for the course CSE412: Data Visualization, at the Paul G. Allen School of Computer Science & Engineering within the University of Washington.
-  [/Step]  
+  [/Step]
 [/Scroller]
