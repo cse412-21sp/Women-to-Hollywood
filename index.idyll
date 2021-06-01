@@ -262,8 +262,51 @@ Despite all the disadvantages and obstacles women face in the movie industry, ma
 [/div]
 [/FullWidth]
 
+[FullWidth]
+[div style:`{backgroundColor: '#B1C2D0'}`]
+[br /]
+
+[div className: 'text']
+[div className: 'idyll-text-container']
+# Conclusion:
+In summary, after analyzing various metrics regarding women in the movie industry, we found the following insights:
+[ul]
+  [li]
+  More and more movies are produced by female directors over time, not only the absolute number but also the ratio of these movies when comparing the male-directed movies. However, women-directed-movies are still less than 20% of the total by 2020.
+  [/li]
+[/ul]
+[ul]
+  [li]
+  Even though female directors increase over time, gender stereotypes over genre still exist. Female directors' number is significantly less than male in stereotypical "males" movies like action and adventure.
+  [/li]
+[/ul]
+[ul]
+  [li]
+  It's interesting that ratings for movies directed by both female and male directors show a decreasing trend. However, the overall ratings of movies directed by females are higher than those directed by males.
+  [/li]
+[/ul]
+[ul]
+  [li]
+ Films that had a higher percentage of female cast overall tended to have both a lower production budget as well as lower box office earnings on opening weekend.
+  [/li]
+  [/ul]
+  [ul]
+  [li]
+  When comparing the ratio of females to males in the cast and crew of various movies versus the ratings, we found that there wasn’t much of a correlation. It was not necessary that a movie with a higher ratio was more or less successful.
+  [/li]
+[/ul]
 
 
+
+The analysis that we conducted demonstrated that women are not well-represented, but are slowly achieving representation. It would be interesting to see a larger dataset inclusive of more movies per year. It would be interesting to visit this project again in the future to note any improvements with women in hollywood.
+[/div]
+[/div]
+
+[br /]
+[br /]
+
+[/div]
+[/FullWidth]
 
 [Scroller]
 
