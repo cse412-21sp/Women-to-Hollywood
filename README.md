@@ -8,7 +8,13 @@ Vignesh Pethuraj, Shumaila Ahmad, Dau Cheng, Wen Yi Aw, Xiaojing Xia.
 
 ### Contribution Statements
 
-Add individual contribution statements here.
+Do movies that pass the Bechdel Test receive different audience/critic ratings compared to movies that do not pass the test? - Vignesh
+How does the female to male ratio of the crew compare with the success of the movie? - Shumaila
+Are budget and box office earnings connected to the presence of females in the cast? -Wen Yi
+Do Female Directors Make More Movies Over Time? - Xiaojing
+How Do the Ratings Change Over Time? - Xiaojing
+Gender Stereotypes in Directing and Movie Genres/ Top box office text cloud - Dau
+
 
 ## Project Proposal
 
